@@ -1,43 +1,42 @@
 # cocktailsApp
-# PROJECT 2
-DESCRIPCIÓN DEL PROYECTO
-Consiste en una web de cockteles, en la que se pueden visualizar los cockteles. Existe la posibilidad de crear un perfil, para guardar los favoritos y crear y editar los cockteles propios.
+# PROJECT DESCRIPTION
 
-MODELS
-    Users
-    UserCoctails
+It consists of a cocktail website, where you can view the cocktails. There is the possibility of creating a profile, to save favorites and create and edit your own cocktails.
 
+## MODELS
+- Users
+- UserCoctails
 
-USERS:
-    Roles
-    - Admin: cambiar roles de cualquier user, editar, eliminar perfiles.
-    - User editor: Pueden crear sus propios cockteles, editar y mostrarlos en su perfil. Además, tienen la capacidad de poder acceder a todo el contenido y marcar cócteles como favoritas.
-    - User basic: Pueden acceder a los detalles de los cockteles.
+## USERS:
+- **Admin:** change user's roles, edit, delete profiles.
+- **User editor:** They can create their own cocktails, edit and show them on their profile. In addition, they have the ability to access all content and mark cocktails as favorites.
+- **User basic:** They can access the details of the cocktails.
 
-AUTH
+## AUTH
     Sing UP
     Log In
-        My Profile
-            Edit/ Delete Profile
-            List Fav Coctails
-            Create/Edit/Delete Your Coctails (My Bar)
+    My Profile
+        Edit/ Delete Profile
+        List Fav Cocktails
+        Create/Edit/Delete Your Cocktails (My Bar)
+
     Log Out
 
-WEB
+## WEB
     Navbar
         Home
             Header
-            Alcohol/Not Alcohol --> alcohol list/not alcohol list
-            Populars Ingredients --> rum,vodka, gin or tequila
-
-        /:id
-            Coctails details
-
+                Alcohol/Not Alcohol
+                    /:id/Cocktails details
+                Populars Ingredients
+                    /:id/Cocktails details
+        Users
         Random
+            /:id/Cocktails details
 
-API
-    URL
-        https://www.thecocktaildb.com/api.php
+## API
+URL
+    https://www.thecocktaildb.com/api.php
 
 
 ## Endpoint table
