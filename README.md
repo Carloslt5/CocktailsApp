@@ -42,30 +42,30 @@ API
 
 ## Endpoint table
 
-| HTTP Method 	| URI path      	        | Description                                     | JSON 	 |
-|-------------	|---------------	        |-----------------------------------------------| |----------|
-| POST         	| `/singup`             	| Register  User                                | |
-| GET         	| `/singup`             	| Render Sing up Form       	                | |
-| GET         	| `/login`             	    | Render login form                             | |
-| POST         	| `/login`             	    | Redirect Profile                              | |
-| POST         	| `/logout`             	| Init session                                  | |
-| GET         	| `/`             	        | Index page          	                        | |
-| GET         	| `/alcohol` 	            | Alcohol list 	                                | |
-| GET         	| `/not-alcohol` 	        | Not alcohol list 	                            | |
-| GET         	| `/rum` 	                | Run list 	                                    | |
-| GET         	| `/vodka` 	                | Vodka list 	                                | |
-| GET         	| `/gin` 	                | Gin list 	                                    | |
-| GET       	| `/tequila` 	            | Tequila list	                                | |
-| GET           | `/{id}/details` 	        | Render details api cocktels 	                | |
-| POST         	| `/{id}/favourite`         | Mark as favourite in user profile 	        | |
-| GET       	| `/profile` 	            | Render user,my favourites,myBar 	            | |
-| GET           | `/profile/{id}/edit` 	    | Render form edit profile 	                    | |
-| POST          | `/profile/{id}/edit`      | Handler profile 	                            | |
-| POST          | `/profile/{id}/delete`    | Delete profile	                            | |
-| GET           | `/profile/{id}/create-myCocktail`         | Render Form cocktail 	        | |
-| POST          | `/profile/{id}/create-myCocktail`         | Handler cocktail created 	    | |
-| GET           | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Render Form edit cocktail 	| |
-| POST          | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Handler edit cocktail created | |
-| POST          | `/{id}/delete-myCocktail/{id}(myCocktail)`| Delete cocktail created 	    | |
-| POST          | `/{id}/role`               | Handler role 	                            | |
-| GET         	| `/api/myCocktail` 	     | Cocktail `Array` 	                        | | ✅  |
+| HTTP Method 	| URI path      	        | Description                                   |   JSON 	 |
+|-------------	|---------------	        |-----------------------------------------------|-------------
+| POST         	| `/singup`             	| Register  User                                | 
+| GET         	| `/singup`             	| Render Sing up Form       	                | 
+| GET         	| `/login`             	    | Render login form                             | 
+| POST         	| `/login`             	    | Redirect Profile                              | 
+| POST         	| `/logout`             	| Init session                                  | 
+| GET         	| `/`             	        | Index page          	                        | 
+| GET         	| `/alcohol` 	            | Alcohol list 	                                |
+| GET         	| `/not-alcohol` 	        | Not alcohol list 	                            |
+| GET         	| `/rum` 	                | Run list 	                                    |
+| GET         	| `/vodka` 	                | Vodka list 	                                |
+| GET         	| `/gin` 	                | Gin list 	                                    |
+| GET       	| `/tequila` 	            | Tequila list	                                |
+| GET           | `/{id}/details` 	        | Render details api cocktels 	                |
+| POST         	| `/{id}/favourite`         | Mark as favourite in user profile 	        |
+| GET       	| `/profile` 	            | Render user,my favourites,myBar 	            |
+| GET           | `/profile/{id}/edit` 	    | Render form edit profile 	                    |
+| POST          | `/profile/{id}/edit`      | Handler profile 	                            |
+| POST          | `/profile/{id}/delete`    | Delete profile	                            |
+| GET           | `/profile/{id}/create-myCocktail`         | Render Form cocktail 	        |
+| POST          | `/profile/{id}/create-myCocktail`         | Handler cocktail created 	    |
+| GET           | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Render Form edit cocktail 	|
+| POST          | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Handler edit cocktail created |
+| POST          | `/{id}/delete-myCocktail/{id}(myCocktail)`| Delete cocktail created 	    |
+| POST          | `/{id}/role`               | Handler role 	                            |
+| GET         	| `/api/myCocktail` 	     | Cocktail `Array` 	                        | ✅  
