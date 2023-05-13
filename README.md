@@ -42,17 +42,13 @@ API
 
 ## Endpoint table
 
-| HTTP Method 	| URI path      	        | Description                                    	| JSON 	|
-|-------------	|---------------	        |-----------------------------------------------  |----------|
-
-RECORD
+| HTTP Method 	| URI path      	        | Description                                     | JSON 	 |
+|-------------	|---------------	        |-----------------------------------------------| |----------|
 | POST         	| `/singup`             	| Register  User                                | |
 | GET         	| `/singup`             	| Render Sing up Form       	                | |
 | GET         	| `/login`             	    | Render login form                             | |
 | POST         	| `/login`             	    | Redirect Profile                              | |
-| POST         	| `/logout`             	| Init session
-
-WEB 
+| POST         	| `/logout`             	| Init session                                  | |
 | GET         	| `/`             	        | Index page          	                        | |
 | GET         	| `/alcohol` 	            | Alcohol list 	                                | |
 | GET         	| `/not-alcohol` 	        | Not alcohol list 	                            | |
@@ -62,24 +58,14 @@ WEB
 | GET       	| `/tequila` 	            | Tequila list	                                | |
 | GET           | `/{id}/details` 	        | Render details api cocktels 	                | |
 | POST         	| `/{id}/favourite`         | Mark as favourite in user profile 	        | |
-
-BASIC USER
 | GET       	| `/profile` 	            | Render user,my favourites,myBar 	            | |
 | GET           | `/profile/{id}/edit` 	    | Render form edit profile 	                    | |
 | POST          | `/profile/{id}/edit`      | Handler profile 	                            | |
 | POST          | `/profile/{id}/delete`    | Delete profile	                            | |
-
-EDITOR USER
-Atua sobre su propio user
 | GET           | `/profile/{id}/create-myCocktail`         | Render Form cocktail 	        | |
 | POST          | `/profile/{id}/create-myCocktail`         | Handler cocktail created 	    | |
 | GET           | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Render Form edit cocktail 	| |
 | POST          | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Handler edit cocktail created | |
 | POST          | `/{id}/delete-myCocktail/{id}(myCocktail)`| Delete cocktail created 	    | |
-
-ADMIN USER
-Actua sobre todos los user
 | POST          | `/{id}/role`               | Handler role 	                            | |
-
-DDBB Mongo Compass
 | GET         	| `/api/myCocktail` 	     | Cocktail `Array` 	                        | | ✅  |
