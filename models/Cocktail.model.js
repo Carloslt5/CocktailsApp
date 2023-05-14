@@ -6,37 +6,60 @@ const myCocktailSchema = new Schema(
         strDrink: String,
         strAlcoholic: String,
         strInstructions: String,
-        strDrinkThumb: String,
-        strIngredient1: String,
-        strIngredient2: String,
-        strIngredient3: String,
-        strIngredient4: String,
-        strIngredient5: String,
-        strIngredient6: String,
-        strIngredient7: String,
-        strIngredient8: String,
-        strIngredient9: String,
-        strIngredient10: String,
-        strIngredient11: String,
-        strIngredient12: String,
-        strIngredient13: String,
-        strIngredient14: String,
-        strIngredient15: String,
-        strMeasure1: String,
-        strMeasure2: String,
-        strMeasure3: String,
-        strMeasure4: String,
-        strMeasure5: String,
-        strMeasure6: String,
-        strMeasure7: String,
-        strMeasure8: String,
-        strMeasure9: String,
-        strMeasure10: String,
-        strMeasure11: String,
-        strMeasure12: String,
-        strMeasure13: String,
-        strMeasure14: String,
-        strMeasure15: String,
+        strDrinkThumb: {
+            type: String,
+            default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCy43lfswN_WIlHHSeFJZCSdQe6_VBiV438wdjG35HDtjfbRTSEsxV-S-wjylMh7qBkqg&usqp=CAU'
+        },
+        strIngredient1: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strIngredient2: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strIngredient3: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strIngredient4: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strIngredient5: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strMeasure1: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strMeasure2: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strMeasure3: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strMeasure4: {
+            type: String,
+            default: null,
+            required: false
+        },
+        strMeasure5: {
+            type: String,
+            default: null,
+            required: false
+        }
 
     },
     {

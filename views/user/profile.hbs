@@ -1,0 +1,83 @@
+<div class="container">
+    <h1>Bienvenid@,{{user.name}}</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <img src="{{user.profileImg}}" alt="{{user.profileImg}}">
+        </div>
+        <div class="col-12 col-md-9">
+
+            <div class="card px-4 py-4">
+                <h2>{{user.name}} {{user.lastName}}</h2>
+                <hr>
+                <p>Your email is: {{user.email}}</p>
+                <p>Role: {{user.role}}</p>
+            </div>
+            <div class="mt-4">
+                <a href="/profile/{{user._id}}/edit" class="btn btn-info">Edit</a>
+
+                <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container card mt-4 px-4 py-4">
+        <h2>My Favorites</h2>
+        <hr>
+        <div class="row justify-content-between">
+
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container card mt-4 px-4 py-4">
+
+        <div class="row justify-content-between align-items-center">
+            <h2 class="col">My Bar</h2>
+            <a href="/profile/create-myCocktail" class="btn btn-dark align-items-rigth col-12 col-md-4">Create
+                cocktails</a>
+            <hr>
+
+        </div>
+
+        <div class="row justify-content-between">
+
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+            <div class="col-12 col-md-4 text-center">
+                <img src="" alt="">
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</div>

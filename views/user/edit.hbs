@@ -1,0 +1,29 @@
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h1>EDIT PROFILE {{user.name}}</h1>
+
+            <form action="/profile/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" value="{{user.lastName}}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{user.email}}">
+                </div>
+                <div class="mb-3">
+                    <label for="profileImg" class="form-label">Avatar:</label>
+                    <input type="file" class="form-control" id="profileImg" name="profileImg"
+                        value="{{user.profileImg}}">
+                </div>
+                <button type="submit" class="btn btn-info">Save Changes</button>
+            </form>
+
+        </div>
+    </div>
+</div>

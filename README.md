@@ -61,8 +61,8 @@ URL
 | GET           | `/profile/{id}/edit` 	    | Render form edit profile 	                    |
 | POST          | `/profile/{id}/edit`      | Handler profile 	                            |
 | POST          | `/profile/{id}/delete`    | Delete profile	                            |
-| GET           | `/profile/{id}/create-myCocktail`         | Render Form cocktail 	        |
-| POST          | `/profile/{id}/create-myCocktail`         | Handler cocktail created 	    |
+| GET           | `/profile/create-myCocktail`         | Render Form cocktail 	        |
+| POST          | `/profile/create-myCocktail`         | Handler cocktail created 	    |
 | GET           | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Render Form edit cocktail 	|
 | POST          | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Handler edit cocktail created |
 | POST          | `/{id}/delete-myCocktail/{id}(myCocktail)`| Delete cocktail created 	    |

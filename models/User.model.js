@@ -12,7 +12,6 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      minlength: 3
     },
     email: {
       type: String,
@@ -35,10 +34,10 @@ const userSchema = new Schema(
       default: 'https://i.stack.imgur.com/l60Hf.png'
     },
     // favorites: [Object],
-    // creations: [{
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'MyCocktail'
-    // }]
+    creations: [{
+      type: Schema.Types.ObjectId,
+      ref: 'MyCocktail'
+    }]
   },
   {
     timestamps: true
