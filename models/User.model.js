@@ -34,11 +34,11 @@ const userSchema = new Schema(
       type: String,
       default: 'https://i.stack.imgur.com/l60Hf.png'
     },
-    favorites: [Object],
-    creations: [{
-      type: Schema.Types.ObjectId,
-      ref: 'MyCocktail'
-    }]
+    // favorites: [Object],
+    // creations: [{
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'MyCocktail'
+    // }]
   },
   {
     timestamps: true
