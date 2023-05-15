@@ -13,7 +13,7 @@ router.get("/profile/create-cocktail", (req, res, next) => {
 // //Create cocktail (handler)
 router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req, res, next) => {
 
-    const { path: imgage } = req.file
+    const { path: image } = req.file
     const { name, type, instructions,
         ingredient1, ingredient2, ingredient3, ingredient4,
         ingredient5, measure1, measure2, measure3, measure4, measure5 } = req.body
