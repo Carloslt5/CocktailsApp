@@ -10,7 +10,8 @@ img {
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .navbar-custom {
@@ -18,11 +19,7 @@ body {
 }
 
 a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
+  text-decoration: none;
 }
 
 #error {
@@ -46,4 +43,19 @@ h1 {
 #header-img3 {
   height: 100vh;
   object-fit: cover;
+}
+
+.bg-wrap {
+  background-color: #220126;
+  border-radius: .8em;
+}
+
+.title {
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.drinks-img {
+  border-radius: .8em;
+  overflow: hidden;
 }

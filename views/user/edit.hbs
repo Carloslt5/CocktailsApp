@@ -18,8 +18,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="profileImg" class="form-label">Avatar:</label>
-                    <input type="file" class="form-control" id="profileImg" name="profileImg"
-                        value="{{user.profileImg}}">
+                    <input type="file" class="form-control" id="profileImg" name="profileImg">
+                    <img class="mt-2" src="{{user.profileImg}}" alt="">
                 </div>
                 <button type="submit" class="btn btn-info">Save Changes</button>
             </form>

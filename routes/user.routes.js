@@ -2,11 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/User.model')
+<<<<<<< HEAD
 const Cocktail = require('../models/Cocktail.model')
+=======
+const uploaderMiddleware = require('../middlewares/uploader.middleware')
+>>>>>>> 5ae100148951f3f793ef71eaf7aa9aa1fe406bc0
 
 // User profile (render)
 router.get("/profile", (req, res, next) => {
 
+<<<<<<< HEAD
     const { _id } = req.session.currentUser
 
     Cocktail
@@ -23,6 +28,9 @@ router.get("/profile", (req, res, next) => {
             // }
         )
         .catch(err => console.log(err))
+=======
+    res.render("user/profile", { user: req.session.currentUser })
+>>>>>>> 5ae100148951f3f793ef71eaf7aa9aa1fe406bc0
 })
 
 
@@ -33,9 +41,10 @@ router.get("/profile/:id/edit", (req, res, next) => {
 
 
 //User profile edit (handler)
-router.post("/profile/:id/edit", (req, res, next) => {
-    const { name, lastName, email, profileImg } = req.body
+router.post("/profile/:id/edit", uploaderMiddleware.single('profileImg'), (req, res, next) => {
     const { id } = req.params
+    const { path: profileImg } = req.file
+    const { name, lastName, email } = req.body
 
     User
         .findByIdAndUpdate(id, { name, lastName, email, profileImg })
