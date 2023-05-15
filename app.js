@@ -26,8 +26,8 @@ app.use("/", authRoutes);
 const userRoutes = require("./routes/user.routes");
 app.use("/", userRoutes);
 
-const myCocktailRoutes = require("./routes/myCocktail.routes");
-app.use("/", myCocktailRoutes);
+const cocktailRoutes = require("./routes/cocktail.routes");
+app.use("/", cocktailRoutes);
 
 require("./error-handling")(app);
 

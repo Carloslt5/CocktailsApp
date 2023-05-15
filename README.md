@@ -61,10 +61,10 @@ URL
 | GET           | `/profile/:id/edit` 	    | Render form edit profile 	                    |
 | POST          | `/profile/:id/edit`       | Handler profile 	                            |
 | POST          | `/profile/:id/delete`     | Delete profile	                            |
-| GET           | `/profile/create-myCocktail`         | Render Form cocktail 	            |
-| POST          | `/profile/create-myCocktail`         | Handler cocktail created 	        |
-| GET           | `/:id/edit-myCocktail/:id(myCocktail)`  | Render Form edit cocktail 	    |
-| POST          | `/:id/edit-myCocktail/:id(myCocktail)`  | Handler edit cocktail created   |
-| POST          | `/:id/delete-myCocktail/:id(myCocktail)`| Delete cocktail created 	    |
+| GET           | `/profile/create-`         | Render Form cocktail 	            |
+| POST          | `/profile/create-cocktail`         | Handler cocktail created 	        |
+| GET           | `/:id/edit-cocktail/:id(cocktail)`  | Render Form edit cocktail 	    |
+| POST          | `/:id/edit-cocktail/:id(cocktail)`  | Handler edit cocktail created   |
+| POST          | `/:id/delete-cocktail/:id(cocktail)`| Delete cocktail created 	    |
 | POST          | `/:id/role`               | Handler role 	                                |
-| GET         	| `/api/myCocktail` 	    | Cocktail `Array` 	                            | ✅  
+| GET         	| `/api/cocktail` 	    | Cocktail `Array` 	                            | ✅  

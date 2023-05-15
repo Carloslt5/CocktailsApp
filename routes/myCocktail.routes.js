@@ -6,23 +6,23 @@ const uploaderMiddleware = require('../middlewares/uploader.middleware')
 
 
 // Create cocktail (render)
-router.get("/profile/create-myCocktail", (req, res, next) => {
-    res.render("myCocktail/create-myCocktail")
+router.get("/profile/create-cocktail", (req, res, next) => {
+    res.render("cocktail/create-cocktail")
 })
 
 // //Create cocktail (handler)
-router.post("/profile/create-myCocktail", uploaderMiddleware.single('strDrinkThumb'), (req, res, next) => {
+router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req, res, next) => {
 
-    const { path: strDrinkThumb } = req.file
-    const { strDrink, strAlcoholic, strInstructions,
-        strIngredient1, strIngredient2, strIngredient3, strIngredient4,
-        strIngredient5, strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5 } = req.body
+    const { path: imgage } = req.file
+    const { name, type, instructions,
+        ingredient1, ingredient2, ingredient3, ingredient4,
+        ingredient5, measure1, measure2, measure3, measure4, measure5 } = req.body
 
     Cocktail
         .create({
-            strDrink, strAlcoholic, strInstructions, strDrinkThumb,
-            strIngredient1, strIngredient2, strIngredient3, strIngredient4,
-            strIngredient5, strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5
+            name, type, instructions, image,
+            ingredient1, ingredient2, ingredient3, ingredient4,
+            ingredient5, measure1, measure2, measure3, measure4, measure5
         })
         .then(() => res.redirect('/profile'))
         .catch(err => console.log(err))
