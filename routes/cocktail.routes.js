@@ -10,17 +10,17 @@ router.get("/profile/create-cocktail", (req, res, next) => {
     res.render("cocktail/create-cocktail")
 })
 
-// //Create cocktail (handler)
+//Create cocktail (handler)
 router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { path: image } = req.file
-    const { name, type, instructions,
+    const { name, type, owner, instructions,
         ingredient1, ingredient2, ingredient3, ingredient4,
         ingredient5, measure1, measure2, measure3, measure4, measure5 } = req.body
 
     Cocktail
         .create({
-            name, type, instructions, image,
+            name, type, owner, instructions, image,
             ingredient1, ingredient2, ingredient3, ingredient4,
             ingredient5, measure1, measure2, measure3, measure4, measure5
         })
@@ -28,6 +28,11 @@ router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req
         .catch(err => console.log(err))
 })
 
+// cocktail details
+router.get('/profile/cocktail-details/:id', (req, res, next) => {
+
+    const { id }
+})
 
 
 module.exports = router;
