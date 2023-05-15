@@ -43,14 +43,14 @@ router.get('/profile/cocktail-details/:id', (req, res, next) => {
 })
 
 //edit cocktail (render)
-router.get('/edit-cocktail'), (req, res, next) => {
-    const { id } = req.params
-    res.send('HOLAAAAA')
-    // Cocktail
-    //     .findById(id)
-    //     .then(cocktail => res.render('cocktail/edit-cocktail'))
-    //     .catch(err => console.log(err))
+// router.get('/edit-cocktail'), (req, res, next) => {
+//     const { id } = req.params
+//     res.send('HOLAAAAA')
+//     Cocktail
+//         .findById(id)
+//         .then(cocktail => res.render('cocktail/edit-cocktail'))
+//         .catch(err => console.log(err))
 
-}
+// }
 
 module.exports = router;

@@ -2,18 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/User.model')
+const Cocktail = require('../models/Cocktail.model')
 
 // User profile (render)
 router.get("/profile", (req, res, next) => {
 
-    // User
-    //     .find()
-    //     .populate('creations')
-    //     .then(() => {
-    //         res.send({ User })
+    const { _id } = req.session.currentUser
 
-    //     })
-    res.render("user/profile", { user: req.session.currentUser })
+    Cocktail
+        .find({ owner: { $eq: _id } })
+        .then(cocktailsFromDB => {
+            User.findById(_id)
+                .then(user => res.render('user/profile', { user, cocktailsFromDB }))
+            // res.send(cocktailsFromDB)
+
+        } // res.send(cocktailsFromDB)
+            // res.render("user/profile", { user: req.session.currentUser }, cocktail)
+            // if (cocktailsFromDB[0].owner == req.session.currentUser.id) {
+            //     console.log(cocktaislFromDB)
+            // }
+        )
+        .catch(err => console.log(err))
 })
 
 
