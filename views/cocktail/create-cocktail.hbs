@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <h1>CREATE YOUR COCKTAILS</h1>
+            <hr>
+            {{user.name}}
+
+            <form action="/profile/create-cocktail" method="post" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Cocktails name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <div class="col-12">
+                        <label for="type" class="form-label">Type:</label>
+                    </div>
+                    <select class="col-12 py-2 px-2" name="type" id="type">
+                        <option value="alcoholic">Alcoholic</option>
+                        <option value="non-alcoholic">Non Alcoholic</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add your image:</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+                <div class="row">
+                    <p>Ingredients:</p>
+                    <div class="col">
+                        <input type="text" class="form-control mb-2" id="ingredient1" name="ingredient1"
+                            placeholder="Ingredients 1">
+                        <input type="text" class="form-control mb-2" id="ingredient2" name="ingredient2"
+                            placeholder="Ingredients 2">
+                        <input type="text" class="form-control mb-2" id="ingredient3" name="ingredient3"
+                            placeholder="Ingredients 3">
+                        <input type="text" class="form-control mb-2" id="ingredient4" name="ingredient4"
+                            placeholder="Ingredients 4">
+                        <input type="text" class="form-control mb-2" id="ingredient5" name="ingredient5"
+                            placeholder="Ingredients 5">
+                    </div>
+                    <div class="col">
+
+                        <input type="text" class="form-control mb-2" id="measure1" name="measure1"
+                            placeholder="Measure 1">
+                        <input type="text" class="form-control mb-2" id="measure2" name="measure2"
+                            placeholder="Measure 2">
+                        <input type="text" class="form-control mb-2" id="measure3" name="measure3"
+                            placeholder="Measure 3">
+                        <input type="text" class="form-control mb-2" id="measure4" name="measure4"
+                            placeholder="Measure 4">
+                        <input type="text" class="form-control mb-2" id="measure5" name="measure5"
+                            placeholder="Measure 5">
+
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="instructions" class="form-label">Instructions:</label>
+                    <textarea name="instructions" id="instructions" class="col-12 px-2 py-2"
+                        style="height: 250px"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark mt-4">Create Cocktail</button>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>

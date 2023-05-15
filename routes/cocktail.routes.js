@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const User = require('../models/User.model')
 const Cocktail = require('../models/Cocktail.model')
+
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
 
 
@@ -12,6 +14,7 @@ router.get("/profile/create-cocktail", (req, res, next) => {
 
 // //Create cocktail (handler)
 router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req, res, next) => {
+    const { _id: owner } = req.session.currentUser
 
     const { path: image } = req.file
     const { name, type, instructions,
@@ -20,14 +23,13 @@ router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req
 
     Cocktail
         .create({
-            name, type, instructions, image,
+            name, type, owner, instructions, image,
             ingredient1, ingredient2, ingredient3, ingredient4,
             ingredient5, measure1, measure2, measure3, measure4, measure5
         })
         .then(() => res.redirect('/profile'))
         .catch(err => console.log(err))
 })
-
 
 
 module.exports = router;
