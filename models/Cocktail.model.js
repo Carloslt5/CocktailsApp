@@ -1,65 +1,64 @@
 const { Schema, model } = require("mongoose");
 
-const myCocktailSchema = new Schema(
+const cocktailSchema = new Schema(
     {
-        idDrink: String,
-        strDrink: String,
-        strAlcoholic: String,
-        strInstructions: String,
+        name: String,
+        type: String,
+        instructions: String,
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
-        strDrinkThumb: {
+        image: {
             type: String,
             default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCy43lfswN_WIlHHSeFJZCSdQe6_VBiV438wdjG35HDtjfbRTSEsxV-S-wjylMh7qBkqg&usqp=CAU'
         },
-        strIngredient1: {
+        ingredient1: {
             type: String,
             default: null,
             required: false
         },
-        strIngredient2: {
+        ingredient2: {
             type: String,
             default: null,
             required: false
         },
-        strIngredient3: {
+        ingredient3: {
             type: String,
             default: null,
             required: false
         },
-        strIngredient4: {
+        ingredient4: {
             type: String,
             default: null,
             required: false
         },
-        strIngredient5: {
+        ingredient5: {
             type: String,
             default: null,
             required: false
         },
-        strMeasure1: {
+        measure1: {
             type: String,
             default: null,
             required: false
         },
-        strMeasure2: {
+        measure2: {
             type: String,
             default: null,
             required: false
         },
-        strMeasure3: {
+        measure3: {
             type: String,
             default: null,
             required: false
         },
-        strMeasure4: {
+        measure4: {
             type: String,
             default: null,
             required: false
         },
-        strMeasure5: {
+        measure5: {
             type: String,
             default: null,
             required: false
@@ -71,6 +70,6 @@ const myCocktailSchema = new Schema(
     }
 );
 
-const MyCocktail = model("MyCocktail", myCocktailSchema);
+const Cocktail = model("Cocktail", cocktailSchema);
 
-module.exports = MyCocktail;
+module.exports = Cocktail;

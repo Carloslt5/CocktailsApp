@@ -34,8 +34,7 @@ const userSchema = new Schema(
       default: 'https://i.stack.imgur.com/l60Hf.png'
     },
     favorites: [{
-      type: Schema.Types.ObjectId,
-      ref: 'CocktailApi'
+      type: String
     }]
   },
   {

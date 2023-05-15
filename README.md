@@ -55,16 +55,16 @@ URL
 | GET         	| `/vodka` 	                | Vodka list 	                                |
 | GET         	| `/gin` 	                | Gin list 	                                    |
 | GET       	| `/tequila` 	            | Tequila list	                                |
-| GET           | `/{id}/details` 	        | Render details api cocktels 	                |
-| POST         	| `/{id}/favourite`         | Mark as favourite in user profile 	        |
+| GET           | `/:id/details` 	        | Render details api cocktels 	                |
+| POST         	| `/:id/favourite`          | Mark as favourite in user profile 	        |
 | GET       	| `/profile` 	            | Render user,my favourites,myBar 	            |
-| GET           | `/profile/{id}/edit` 	    | Render form edit profile 	                    |
-| POST          | `/profile/{id}/edit`      | Handler profile 	                            |
-| POST          | `/profile/{id}/delete`    | Delete profile	                            |
+| GET           | `/profile/:id/edit` 	    | Render form edit profile 	                    |
+| POST          | `/profile/:id/edit`       | Handler profile 	                            |
+| POST          | `/profile/:id/delete`     | Delete profile	                            |
 | GET           | `/profile/create-myCocktail`         | Render Form cocktail 	            |
 | POST          | `/profile/create-myCocktail`         | Handler cocktail created 	        |
-| GET           | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Render Form edit cocktail 	|
-| POST          | `/{id}/edit-myCocktail/{id}(myCocktail)`  | Handler edit cocktail created |
-| POST          | `/{id}/delete-myCocktail/{id}(myCocktail)`| Delete cocktail created 	    |
-| POST          | `/{id}/role`               | Handler role 	                            |
-| GET         	| `/api/myCocktail` 	     | Cocktail `Array` 	                        | ✅  
+| GET           | `/:id/edit-myCocktail/:id(myCocktail)`  | Render Form edit cocktail 	    |
+| POST          | `/:id/edit-myCocktail/:id(myCocktail)`  | Handler edit cocktail created   |
+| POST          | `/:id/delete-myCocktail/:id(myCocktail)`| Delete cocktail created 	    |
+| POST          | `/:id/role`               | Handler role 	                                |
+| GET         	| `/api/myCocktail` 	    | Cocktail `Array` 	                            | ✅  
