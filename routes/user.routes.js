@@ -6,14 +6,14 @@ const User = require('../models/User.model')
 // User profile (render)
 router.get("/profile", (req, res, next) => {
 
-    User
-        .find()
-        .populate('creations')
-        .then(() => {
-            res.send({ User })
+    // User
+    //     .find()
+    //     .populate('creations')
+    //     .then(() => {
+    //         res.send({ User })
 
-        })
-    // res.render("user/profile", { user: req.session.currentUser })
+    //     })
+    res.render("user/profile", { user: req.session.currentUser })
 })
 
 

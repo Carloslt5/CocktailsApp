@@ -6,6 +6,10 @@ const myCocktailSchema = new Schema(
         strDrink: String,
         strAlcoholic: String,
         strInstructions: String,
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
         strDrinkThumb: {
             type: String,
             default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCy43lfswN_WIlHHSeFJZCSdQe6_VBiV438wdjG35HDtjfbRTSEsxV-S-wjylMh7qBkqg&usqp=CAU'
