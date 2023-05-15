@@ -63,7 +63,7 @@ URL
 | POST          | `/profile/:id/delete`     | Delete profile	                            |
 | GET           | `/profile/create-`         | Render Form cocktail 	            |
 | POST          | `/profile/create-cocktail`         | Handler cocktail created 	        |
-| GET          | `/profile/cocktail-details/:id`         | Render cocktail details 
+| GET           | `/profile/cocktail-details/:id`         | Render cocktail details 
 | GET           | `/:id/edit-cocktail/:id(cocktail)`  | Render Form edit cocktail 	    |
 | POST          | `/:id/edit-cocktail/:id(cocktail)`  | Handler edit cocktail created   |
 | POST          | `/:id/delete-cocktail/:id(cocktail)`| Delete cocktail created 	    |

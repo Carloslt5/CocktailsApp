@@ -1,1 +1,43 @@
-<p>DETALLES DE COCKTELES</p>
+<div class="container">
+    <h1>COCKTAIL: {{name}}</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <img src="{{image}}" alt="{{image}}">
+        </div>
+        <div class="col-12 col-md-9">
+
+            <div class="card px-4 py-4">
+                <h2>{{name}}</h2>
+                <hr>
+                <p>Type: {{type}}</p>
+
+                <p>Creator:{{owner.name}}</p>
+
+            </div>
+            <div class="mt-4">
+                <h2>Ingredients:</h2>
+
+                <ul>
+                    <li>Ingredient: {{ingredient1}}, Measure:{{measure1}} </li>
+                    <li>Ingredient: {{ingredient2}}, Measure:{{measure2}} </li>
+                    <li>Ingredient: {{ingredient3}}, Measure:{{measure3}} </li>
+                    <li>Ingredient: {{ingredient4}}, Measure:{{measure4}} </li>
+                    <li>Ingredient: {{ingredient5}}, Measure:{{measure5}} </li>
+                </ul>
+
+
+                <div class="col">
+                    <div class="card px-4 py-4">
+                        <p>Instructions: {{instructions}}</p>
+                    </div>
+                    <a href="/edit-cocktail/{{_id}}" class="btn btn-info">Edit</a>
+
+                    {{!-- <form action="{{user._id}}/delete-cocktail/{{_id}}" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form> --}}
+                </div>
+
+            </div>
+        </div>

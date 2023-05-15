@@ -31,10 +31,30 @@ router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req
         .catch(err => console.log(err))
 })
 
-// cocktail details
+//cocktail details
 router.get('/profile/cocktail-details/:id', (req, res, next) => {
 
+<<<<<<< HEAD
 
+=======
+    const { id } = req.params
+    Cocktail
+        .findById(id)
+        .populate('owner')
+        .then(cocktail => res.render('cocktail/details-cocktail', cocktail))
+        .catch(err => console.log(err))
+>>>>>>> lourdes
 })
+
+//edit cocktail (render)
+router.get('/edit-cocktail'), (req, res, next) => {
+    const { id } = req.params
+    res.send('HOLAAAAA')
+    // Cocktail
+    //     .findById(id)
+    //     .then(cocktail => res.render('cocktail/edit-cocktail'))
+    //     .catch(err => console.log(err))
+
+}
 
 module.exports = router;
