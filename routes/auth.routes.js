@@ -38,29 +38,29 @@ router.get("/login", (req, res, next) => {
 // login form (handling)
 router.post("/login", (req, res, next) => {
     const { email, password } = req.body
-    res.send({ email, password })
-    // if (email.length === 0 || password.length === 0) {
-    //     res.render('auth/login', { errorMessage: 'Fields are required' })
-    //     return
-    // }
 
-    // User
-    //     .findOne({ email })
-    //     .then(foundUser => {
+    if (email.length === 0 || password.length === 0) {
+        res.render('auth/login', { errorMessage: 'Fields are required' })
+        return
+    }
 
-    //         if (!foundUser) {
-    //             res.render('auth/login', { errorMessage: 'Usuario no reconocido' })
-    //             return
-    //         }
+    User
+        .findOne({ email })
+        .then(foundUser => {
 
-    //         if (!bcrypt.compareSync(password, foundUser.password)) {
-    //             res.render('auth/login', { errorMessage: 'Contraseña incorrecta' })
-    //             return
-    //         }
+            if (!foundUser) {
+                res.render('auth/login', { errorMessage: 'Usuario no reconocido' })
+                return
+            }
 
-    //         req.session.currentUser = foundUser
-    //         res.redirect('/profile')
-    //     })
+            if (!bcrypt.compareSync(password, foundUser.password)) {
+                res.render('auth/login', { errorMessage: 'Contraseña incorrecta' })
+                return
+            }
+
+            req.session.currentUser = foundUser
+            res.redirect('/profile')
+        })
 })
 
 //logout
