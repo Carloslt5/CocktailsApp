@@ -2,17 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/User.model')
+const uploaderMiddleware = require('../middlewares/uploader.middleware')
 
 // User profile (render)
 router.get("/profile", (req, res, next) => {
 
-    // User
-    //     .find()
-    //     .populate('creations')
-    //     .then(() => {
-    //         res.send({ User })
-
-    //     })
     res.render("user/profile", { user: req.session.currentUser })
 })
 
@@ -24,9 +18,10 @@ router.get("/profile/:id/edit", (req, res, next) => {
 
 
 //User profile edit (handler)
-router.post("/profile/:id/edit", (req, res, next) => {
-    const { name, lastName, email, profileImg } = req.body
+router.post("/profile/:id/edit", uploaderMiddleware.single('profileImg'), (req, res, next) => {
     const { id } = req.params
+    const { path: profileImg } = req.file
+    const { name, lastName, email } = req.body
 
     User
         .findByIdAndUpdate(id, { name, lastName, email, profileImg })
