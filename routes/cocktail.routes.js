@@ -33,17 +33,13 @@ router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req
 
 //cocktail details
 router.get('/profile/cocktail-details/:id', (req, res, next) => {
-
-<<<<<<< HEAD
-
-=======
     const { id } = req.params
+
     Cocktail
         .findById(id)
         .populate('owner')
         .then(cocktail => res.render('cocktail/details-cocktail', cocktail))
         .catch(err => console.log(err))
->>>>>>> lourdes
 })
 
 //edit cocktail (render)
