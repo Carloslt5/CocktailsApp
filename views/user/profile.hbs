@@ -58,22 +58,14 @@
 
         </div>
 
-        <div class="row justify-content-between">
+        <div class="row">
 
+            {{#each cocktail}}
             <div class="col-12 col-md-4 text-center">
-                <img src="" alt="">
-                {{#each cocktailsFromDB}}
+                <img src="{{image}}" alt="">
                 <p>{{name}}</p>
-                {{/each}}
             </div>
-            {{!-- <div class="col-12 col-md-4 text-center">
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <img src="" alt="">
-                <p>Lorem ipsum dolor sit amet</p>
-            </div> --}}
+            {{/each}}
 
         </div>
     </div>

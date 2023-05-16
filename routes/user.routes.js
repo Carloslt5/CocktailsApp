@@ -10,33 +10,23 @@ router.get("/profile", (req, res, next) => {
 
     const { _id } = req.session.currentUser
 
-    // const promises = [
-    //     Cocktail
-    //         .find({ owner: { $eq: _id } })
-    //         .populate('owner'),
-    //     User
-    //         .find(_id)
-    // ]
+    const promises = [
+        Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
+        User.findById(_id)
+    ]
 
-    // Promise
-    //     .all(promises)
-    //     .then(respose => {
-    //         res.send(respose)
-    //         // const cocktail = response[0]
-    //         // const ownerWithCocktail = response[1]
+    Promise
+        .all(promises)
+        .then(response => {
 
-    //         // res.render('user/profile', { cocktail, ownerWithCocktail })
-    //     })
-    //     .catch(err => console.log(err))
+            const cocktail = response[0]
+            const user = response[1]
 
-    Cocktail
-        .find({ owner: { $eq: _id } })
-        .then(cocktailsFromDB => {
-            User
-                .findById(_id)
-                .then(user => res.render('user/profile', { user, cocktailsFromDB }))
+            res.render('user/profile', { cocktail, user })
+
         })
         .catch(err => console.log(err))
+
 })
 
 

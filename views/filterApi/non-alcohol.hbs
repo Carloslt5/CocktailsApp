@@ -1,0 +1,21 @@
+<main>
+
+    <div class="container my-4">
+        <div class="row py-4 px-2 bg-wrap">
+
+            {{#each drinks}}
+            <div class="col-12 col-md-3">
+                {{!-- <a href="{{id}}"> --}}
+                    <div class="drinks-img mb-2">
+                        <img src="{{strDrinkThumb}}" alt="">
+                    </div>
+                    <p><strong class="text-white">{{strDrink}}</strong></p>
+                    {{!--
+                </a> --}}
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+
+</main>
