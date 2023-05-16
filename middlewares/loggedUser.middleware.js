@@ -1,7 +1,8 @@
 const loggedUser = (req, res, next) => {
-    console.log('hollaaaaaaaa')
+    res.locals.loggedUser = req.session.currentUser
+    console.log('asdasdasdasdasdasd')
     next()
 }
 
 
-module.exports = { loggedUser }
+module.exports = { loggedUser } 

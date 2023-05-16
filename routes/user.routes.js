@@ -47,15 +47,25 @@ router.get("/profile/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC
 //User profile edit (handler)
 router.post("/profile/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('profileImg'), (req, res, next) => {
     const { id } = req.params
-    const { path: profileImg } = req.file
     const { name, lastName, email } = req.body
 
-    User
-        .findByIdAndUpdate(id, { name, lastName, email, profileImg })
-        .then(() => {
-            res.redirect("/profile")
-        })
-        .catch(err => console.log(err))
+    if (req.file) {
+        const { path: profileImg } = req.file
+        User
+            .findByIdAndUpdate(id, { name, lastName, email, profileImg })
+            .then(() => {
+                res.redirect("/profile")
+            })
+            .catch(err => console.log(err))
+    } else {
+        User
+            .findByIdAndUpdate(id, { name, lastName, email })
+            .then(() => {
+                res.redirect("/profile")
+            })
+            .catch(err => console.log(err))
+    }
+
 })
 
 //User profile delete (handler)
