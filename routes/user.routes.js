@@ -10,21 +10,23 @@ router.get("/profile", (req, res, next) => {
 
     const { _id } = req.session.currentUser
 
-    Cocktail
-        .find({ owner: { $eq: _id } })
-        .then(cocktailsFromDB => {
-            User.findById(_id)
-                .then(user => res.render('user/profile', { user, cocktailsFromDB }))
-            // res.send(cocktailsFromDB)
+    const promises = [
+        Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
+        User.findById(_id)
+    ]
 
-        } // res.send(cocktailsFromDB)
-            // res.render("user/profile", { user: req.session.currentUser }, cocktail)
-            // if (cocktailsFromDB[0].owner == req.session.currentUser.id) {
-            //     console.log(cocktaislFromDB)
-            // }
-        )
+    Promise
+        .all(promises)
+        .then(response => {
+
+            const cocktail = response[0]
+            const user = response[1]
+
+            res.render('user/profile', { cocktail, user })
+
+        })
         .catch(err => console.log(err))
-    res.render("user/profile", { user: req.session.currentUser })
+
 })
 
 

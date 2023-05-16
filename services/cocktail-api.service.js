@@ -12,13 +12,17 @@ class CocktailApiHandler {
         return this.axiosApp.get('filter.php?a=Alcoholic')
     }
 
-    // getOneCharacter(characterId) {
-    //     return this.axiosApp.get(`/characters/${characterId}`)
-    // }
+    getNonAlcoholic() {
+        return this.axiosApp.get('filter.php?a=Non_Alcoholic')
+    }
 
-    // saveCharacter(characterInfo) {
-    //     return this.axiosApp.post(`/characters`, characterInfo)
-    // }
+    getRum() {
+        return this.axiosApp.get('filter.php?i=Rum')
+    }
+
+    getVodka() {
+        return this.axiosApp.get('filter.php?i=Vodka')
+    }
 
     // editCharacter(characterId, characterInfo) {
     //     return this.axiosApp.put(`/characters/${characterId}`, characterInfo)
