@@ -2,40 +2,48 @@
     <h1>Welcome, {{user.name}}</h1>
     <hr>
 
-    <div class="row">
+    <div class="row row-gap">
         <div class="col-12 col-md-3">
-            <img src="{{user.profileImg}}" alt="{{user.profileImg}}">
-        </div>
-        <div class="col-12 col-md-9">
 
-            <div class="card px-4 py-4">
-                <h2>{{user.name}} {{user.lastName}}</h2>
-                <hr>
-                <p>Your email is: {{user.email}}</p>
-                <p>Role: {{user.role}}</p>
-            </div>
-            <div class="mt-4">
-                <a href="/profile/{{user._id}}/edit" class="btn btn-info">Edit</a>
+            <figure class="profile-Img h-100">
+                <img class='object-fit-cover rounded' src=" {{user.profileImg}}" alt="{{user.profileImg}}">
+            </figure>
+
+        </div>
+        <div class="col-12 col-md-9 d-flex flex-column justify-content-between">
+
+            <div class="card h-100 justify-content-between">
+
+                <article>
+                    <h2>{{user.name}} {{user.lastName}}</h2>
+                    <hr>
+                    <h4>Your email is: </h4>
+                    <p>{{user.email}}</p>
+                    <h4>Role: </h4>
+                    <p>{{user.role}}</p>
+                </article>
 
                 {{#if userRole.isAdmin}}
-                <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
-                    <input type="submit" value="Delete" class="btn btn-danger">
-                </form>
-                {{/if}}
-
                 {{#if userRole.isOwner}}
-                <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
-                    <input type="submit" value="Delete" class="btn btn-danger">
-                </form>
-                {{/if}}
+                <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
+                    <a href="/profile/{{user._id}}/edit" class="btn btn-info ">Edit</a>
 
+                    <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger w-100">
+                    </form>
+
+                </div>
+                {{/if}}
+                {{/if}}
             </div>
+
+
 
         </div>
     </div>
 
 
-    <div class="container card mt-4 px-4 py-4">
+    <div class="container card mt-4">
         <h2>My Favorites</h2>
         <hr>
         <div class="row justify-content-between">
@@ -57,8 +65,7 @@
     </div>
 
     {{#if userRole.isAdmin}}
-    <div class="container card mt-4 px-4 py-4">
-
+    <div class="container card mt-4">
 
         <div class="row justify-content-between align-items-center">
             <h2 class="col">My Bar</h2>
@@ -67,7 +74,6 @@
             <hr>
 
         </div>
-
 
         <div class="row">
 
@@ -81,24 +87,24 @@
             {{/each}}
 
         </div>
-
-
 
     </div>
     {{/if}}
 
     {{#if userRole.isEditor}}
-    <div class="container card mt-4 px-4 py-4">
-
+    <div class="container card mt-4">
 
         <div class="row justify-content-between align-items-center">
-            <h2 class="col">My Bar</h2>
-            <a href="/profile/create-cocktail" class="btn btn-dark align-items-rigth col-12 col-md-4">Create
-                cocktails</a>
+            <div class="col">
+                <h2 class="">My Bar</h2>
+            </div>
+            <div class="col">
+                <a href="/profile/create-cocktail" class="btn btn-dark">Create
+                    cocktails</a>
+            </div>
+
             <hr>
-
         </div>
-
 
         <div class="row">
 
@@ -112,8 +118,6 @@
             {{/each}}
 
         </div>
-
-
 
     </div>
     {{/if}}

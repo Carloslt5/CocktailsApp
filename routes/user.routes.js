@@ -8,7 +8,7 @@ const { isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 
 
 // User profile (render)
-router.get("/profile", isLoggedIn, (req, res, next) => {
+router.get("/profile", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
 

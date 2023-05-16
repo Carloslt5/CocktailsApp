@@ -5,23 +5,81 @@ color: #380140;
 color: #220126;
  */
 
-img {
-  width: 100%;
+
+/* Global config */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 0;
 }
 
 body {
+  font-family: sans-serif;
+}
+
+.bg-wrap {
+  background-color: #220126;
+  border-radius: .8em;
+}
+
+.title {
   font-family: 'Archivo Black', sans-serif;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.navbar-custom {
-  background-color: #380140;
+.card {
+  padding: 1em;
 }
 
 a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+figure img {
+  height: inherit;
+}
+
+/* Navbar  */
+.navbar-custom {
+  background-color: #380140;
+}
+
+.dropdown-menu {
+  left: unset !important;
+  right: 0;
+}
+
+.nav-link {
+  padding-right: 0 !important;
+}
+
+#navbar-avatar {
+  height: 2em;
+  width: 2em;
+}
+
+.user-profileImg {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+/* Sign up / Log in -----> Error  */
 #error {
   background-color: rgb(255, 188, 188);
   font-size: .9em;
@@ -30,6 +88,8 @@ a {
   text-align: center;
 }
 
+
+/* Content */
 #header-img1 {
   height: 100vh;
   object-fit: cover;
@@ -45,26 +105,11 @@ a {
   object-fit: cover;
 }
 
-.bg-wrap {
-  background-color: #220126;
-  border-radius: .8em;
-}
-
-.title {
-  font-family: 'Archivo Black', sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
+.row-gap {
+  row-gap: 1em;
 }
 
 .drinks-img {
   border-radius: .8em;
   overflow: hidden;
-}
-
-.dropdown-menu {
-  left: unset !important;
-  right: 0;
-}
-
-.nav-link {
-  padding-right: 0 !important;
 }

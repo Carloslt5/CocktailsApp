@@ -19,6 +19,52 @@
 </head>
 
 <body>
+
+   {{#if loggedUser}}
+   <nav class="navbar navbar-expand-lg navbar-custom" data-bs-theme="dark">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="/">{{siteTitle}}</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/users">Users</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Random</a>
+               </li>
+
+            </ul>
+            <ul class="navbar-nav w-20">
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                     <div class="user-profileImg">
+                        <img src="{{loggedUser.profileImg}}" alt="" id="navbar-avatar">
+                     </div>
+                     <p class="mb-0 mx-2">{{loggedUser.name}}</p>
+                  </a>
+                  <ul class="dropdown-menu">
+                     <li><a class="dropdown-item text-end" href="/profile">My Profile</a></li>
+                     <hr class="dropdown-divider">
+                     <li class="dropdown-item">
+                        <form action="/logout" method="POST">
+                           <button class="nav-link w-100 text-end" id="logout">Logout</button>
+                        </form>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+
+
+         </div>
+      </div>
+   </nav>
+   {{else}}
    <nav class="navbar navbar-expand-lg navbar-custom" data-bs-theme="dark">
       <div class="container-fluid">
          <a class="navbar-brand" href="/">{{siteTitle}}</a>
@@ -46,14 +92,6 @@
                   <ul class="dropdown-menu">
                      <li><a class="dropdown-item text-end" href="/signup">Signup</a></li>
                      <li><a class="dropdown-item text-end" href="/login">LogIn</a></li>
-
-
-                     <hr class="dropdown-divider">
-                     <li class="dropdown-item">
-                        <form action="/logout" method="POST">
-                           <button class="nav-link w-100 text-end" id="logout">Logout</button>
-                        </form>
-                     </li>
                   </ul>
                </li>
             </ul>
@@ -64,8 +102,7 @@
    </nav>
 
 
-   {{#if loggedUser}}
-   <p>asdasdsa</p>
+
    {{/if }}
 
    {{{body}}}
