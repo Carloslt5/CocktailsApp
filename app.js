@@ -13,6 +13,9 @@ require("./config/session.config")(app)
 
 app.locals.siteTitle = `CocktailsApp`;
 
+// app.use(loggedUser)
+
+// app.locals.loggedUser =
 
 require("./routes")(app)
 require("./error-handling")(app);
