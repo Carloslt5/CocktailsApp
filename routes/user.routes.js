@@ -4,9 +4,11 @@ const router = express.Router();
 const User = require('../models/User.model')
 const Cocktail = require('../models/Cocktail.model')
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
+const { isLoggedIn, checkRoles } = require('../middlewares/route-guard')
+
 
 // User profile (render)
-router.get("/profile", (req, res, next) => {
+router.get("/profile", isLoggedIn, (req, res, next) => {
 
     const { _id } = req.session.currentUser
 
@@ -31,13 +33,13 @@ router.get("/profile", (req, res, next) => {
 
 
 //User profile edit (render)
-router.get("/profile/:id/edit", (req, res, next) => {
+router.get("/profile/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
     res.render("user/edit", { user: req.session.currentUser })
 })
 
 
 //User profile edit (handler)
-router.post("/profile/:id/edit", uploaderMiddleware.single('profileImg'), (req, res, next) => {
+router.post("/profile/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('profileImg'), (req, res, next) => {
     const { id } = req.params
     const { path: profileImg } = req.file
     const { name, lastName, email } = req.body
@@ -51,7 +53,7 @@ router.post("/profile/:id/edit", uploaderMiddleware.single('profileImg'), (req, 
 })
 
 //User profile delete (handler)
-router.post("/profile/:id/delete", (req, res, next) => {
+router.post("/profile/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
     const { id } = req.params
     User
         .findByIdAndDelete(id)

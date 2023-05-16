@@ -5,10 +5,10 @@ const saltRounds = 10
 
 const User = require('../models/User.model')
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
-// const { isLoggedOut } = require('../middlewares/route-guard')
+const { isLoggedOut } = require('../middlewares/route-guard')
 
 // signup form (render)
-router.get("/signup", (req, res, next) => {
+router.get("/signup", isLoggedOut, (req, res, next) => {
     res.render("auth/signup")
 })
 
@@ -31,7 +31,7 @@ router.post("/signup", uploaderMiddleware.single('profileImg'), (req, res, next)
 
 // login render
 
-router.get("/login", (req, res, next) => {
+router.get("/login", isLoggedOut, (req, res, next) => {
     res.render("auth/login")
 })
 
