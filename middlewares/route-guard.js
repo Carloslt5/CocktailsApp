@@ -1,22 +1,22 @@
-// const isLoggedIn = (req, res, next) => {
-//     req.session.currentUser ? next() : res.render('auth/login', { errorMessage: 'Inicia sesión para continuar' })
-// }
+const isLoggedIn = (req, res, next) => {
+    req.session.currentUser ? next() : res.render('auth/login', { errorMessage: 'Log in to continue' })
+}
 
 
-// const isLoggedOut = (req, res, next) => {
-//     !req.session.currentUser ? next() : res.redirect('/')
-// }
+const isLoggedOut = (req, res, next) => {
+    !req.session.currentUser ? next() : res.redirect('/')
+}
 
 
-// const checkRoles = (...admittedRoles) => (req, res, next) => {
+const checkRoles = (...admittedRoles) => (req, res, next) => {
 
-//     const isAdmitted = admittedRoles.includes(req.session.currentUser.role)
+    const isAdmitted = admittedRoles.includes(req.session.currentUser.role)
 
-//     if (isAdmitted) {
-//         next()
-//     } else {
-//         res.render('auth/login', { errorMessage: 'Acceso no autorizado' })
-//     }
-// }
+    if (isAdmitted) {
+        next()
+    } else {
+        res.render('auth/login', { errorMessage: 'Unauthorized access.' })
+    }
+}
 
-// module.exports = { isLoggedIn, isLoggedOut, checkRoles }
+module.exports = { isLoggedIn, isLoggedOut, checkRoles }

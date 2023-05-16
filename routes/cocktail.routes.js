@@ -5,15 +5,16 @@ const User = require('../models/User.model')
 const Cocktail = require('../models/Cocktail.model')
 
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
+const { isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 
 
 // Create cocktail (render)
-router.get("/profile/create-cocktail", (req, res, next) => {
+router.get("/profile/create-cocktail", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
     res.render("cocktail/create-cocktail")
 })
 
 //Create cocktail (handler)
-router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req, res, next) => {
+router.post("/profile/create-cocktail", checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { _id: owner } = req.session.currentUser
     const { path: image } = req.file
@@ -32,7 +33,7 @@ router.post("/profile/create-cocktail", uploaderMiddleware.single('image'), (req
 })
 
 //cocktail details
-router.get('/profile/cocktail-details/:id', (req, res, next) => {
+router.get('/profile/cocktail-details/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
     const { id } = req.params
 
     Cocktail
@@ -43,7 +44,7 @@ router.get('/profile/cocktail-details/:id', (req, res, next) => {
 })
 
 //edit cocktail(render)
-router.get('/edit-cocktail/:id', (req, res, next) => {
+router.get('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
     const { id } = req.params
 
     Cocktail
@@ -53,7 +54,7 @@ router.get('/edit-cocktail/:id', (req, res, next) => {
 })
 
 //edit cocktail(handler)
-router.post('/edit-cocktail/:id', uploaderMiddleware.single('image'), (req, res, next) => {
+router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { id } = req.params
     const { path: image } = req.file
