@@ -59,3 +59,12 @@ a {
   border-radius: .8em;
   overflow: hidden;
 }
+
+.dropdown-menu {
+  left: unset !important;
+  right: 0;
+}
+
+.nav-link {
+  padding-right: 0 !important;
+}
