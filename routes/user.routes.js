@@ -17,6 +17,12 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
         User.findById(_id)
     ]
 
+    const userRole = {
+        isAdmin: req.session.currentUser?.role === 'ADMIN',
+        isEditor: req.session.currentUser?.role === 'EDITOR',
+        isOwner: req.session.currentUser?._id === _id
+    }
+
     Promise
         .all(promises)
         .then(response => {
@@ -24,7 +30,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
             const cocktail = response[0]
             const user = response[1]
 
-            res.render('user/profile', { cocktail, user })
+            res.render('user/profile', { cocktail, user, userRole })
 
         })
         .catch(err => console.log(err))
