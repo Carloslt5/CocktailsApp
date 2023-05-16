@@ -24,9 +24,14 @@ class CocktailApiHandler {
         return this.axiosApp.get('filter.php?i=Vodka')
     }
 
-    // editCharacter(characterId, characterInfo) {
-    //     return this.axiosApp.put(`/characters/${characterId}`, characterInfo)
-    // }
+    getGin() {
+        return this.axiosApp.get('filter.php?i=Gin')
+    }
+
+    getTequila() {
+        return this.axiosApp.get('filter.php?i=Tequila')
+    }
+
 }
 
 const cocktailApiHandler = new CocktailApiHandler()
