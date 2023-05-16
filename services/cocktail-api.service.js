@@ -32,6 +32,10 @@ class CocktailApiHandler {
         return this.axiosApp.get('filter.php?i=Tequila')
     }
 
+    getById(idDrinks) {
+        return this.axiosApp.get(`lookup.php?i=${idDrinks}`)
+    }
+
 }
 
 const cocktailApiHandler = new CocktailApiHandler()
