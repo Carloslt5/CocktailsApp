@@ -78,13 +78,13 @@ router.post('/edit-cocktail/:id', uploaderMiddleware.single('image'), (req, res,
 
 
 //Delete
-// router.post("/delete-cocktail/:id", (req, res, next) => {
-//     const { id } = req.params
+router.post("/delete-cocktail/:id", (req, res, next) => {
+    const { id } = req.params
 
-//     Cocktail
-//         .findByIdAndDelete(id)
-//         .then(() => res.redirect('/'))
-//         .catch(err => console.log(err))
-// })
+    Cocktail
+        .findByIdAndDelete(id)
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err))
+})
 
 module.exports = router;
