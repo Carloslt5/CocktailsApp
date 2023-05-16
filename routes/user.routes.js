@@ -10,21 +10,33 @@ router.get("/profile", (req, res, next) => {
 
     const { _id } = req.session.currentUser
 
+    // const promises = [
+    //     Cocktail
+    //         .find({ owner: { $eq: _id } })
+    //         .populate('owner'),
+    //     User
+    //         .find(_id)
+    // ]
+
+    // Promise
+    //     .all(promises)
+    //     .then(respose => {
+    //         res.send(respose)
+    //         // const cocktail = response[0]
+    //         // const ownerWithCocktail = response[1]
+
+    //         // res.render('user/profile', { cocktail, ownerWithCocktail })
+    //     })
+    //     .catch(err => console.log(err))
+
     Cocktail
         .find({ owner: { $eq: _id } })
         .then(cocktailsFromDB => {
-            User.findById(_id)
+            User
+                .findById(_id)
                 .then(user => res.render('user/profile', { user, cocktailsFromDB }))
-            // res.send(cocktailsFromDB)
-
-        } // res.send(cocktailsFromDB)
-            // res.render("user/profile", { user: req.session.currentUser }, cocktail)
-            // if (cocktailsFromDB[0].owner == req.session.currentUser.id) {
-            //     console.log(cocktaislFromDB)
-            // }
-        )
+        })
         .catch(err => console.log(err))
-    res.render("user/profile", { user: req.session.currentUser })
 })
 
 
@@ -42,11 +54,10 @@ router.post("/profile/:id/edit", uploaderMiddleware.single('profileImg'), (req, 
 
     User
         .findByIdAndUpdate(id, { name, lastName, email, profileImg })
-        .then(userFound => {
+        .then(() => {
             res.redirect("/profile")
         })
         .catch(err => console.log(err))
-
 })
 
 //User profile delete (handler)
