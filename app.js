@@ -8,27 +8,13 @@ const hbs = require("hbs");
 const app = express();
 
 require("./config")(app);
-require("./config/session.config")(app) // session config
+require("./config/session.config")(app)
 
 
-const capitalize = require("./utils/capitalize");
-const projectName = "cocktailsApp";
-
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+app.locals.siteTitle = `CocktailsApp`;
 
 
-const indexRoutes = require("./routes/index.routes");
-app.use("/", indexRoutes);
-
-const authRoutes = require("./routes/auth.routes");
-app.use("/", authRoutes);
-
-const userRoutes = require("./routes/user.routes");
-app.use("/", userRoutes);
-
-const cocktailRoutes = require("./routes/cocktail.routes");
-app.use("/", cocktailRoutes);
-
+require("./routes")(app)
 require("./error-handling")(app);
 
 module.exports = app;
