@@ -62,8 +62,10 @@
 
             {{#each cocktail}}
             <div class="col-12 col-md-4 text-center">
-                <img src="{{image}}" alt="">
-                <p>{{name}}</p>
+                <a href="/profile/cocktail-details/{{_id}}">
+                    <img src="{{image}}" alt="">
+                    <p>{{name}}</p>
+                </a>
             </div>
             {{/each}}
 

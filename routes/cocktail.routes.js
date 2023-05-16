@@ -62,6 +62,7 @@ router.post('/edit-cocktail/:id', uploaderMiddleware.single('image'), (req, res,
         ingredient5, measure1, measure2, measure3, measure4,
         measure5 } = req.body
 
+
     Cocktail
         .findByIdAndUpdate(id, {
             name, type, instructions, image,
@@ -70,7 +71,7 @@ router.post('/edit-cocktail/:id', uploaderMiddleware.single('image'), (req, res,
             measure5
         })
         .then(() => {
-            res.redirect('/')
+            res.redirect(`/profile/cocktail-details/${id}`)
         })
         .catch(err => console.log(err))
 })
