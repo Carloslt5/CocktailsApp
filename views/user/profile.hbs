@@ -1,6 +1,14 @@
 <div class="container py-5">
     <h1>Welcome, {{user.name}}</h1>
     <hr>
+    {{idDrink}}
+    {{#each drinks}}
+
+    {{idDrink}}
+    {{strDrink}}
+    <img src="{{strDrinkThumb}}" alt="">
+
+    {{/each}}
 
     <div class="row row-gap">
         <div class="col-12 col-md-3">
@@ -91,7 +99,7 @@
                 <hr>
                 <div class="row">
 
-                    {{#each cocktail}}
+                    {{#each cocktails}}
                     <div class="col-12 col-md-3 text-center">
                         <a href="/profile/cocktail-details/{{_id}}">
                             <figure class="bar-Img">
@@ -124,7 +132,7 @@
                 <hr>
                 <div class="row">
 
-                    {{#each cocktail}}
+                    {{#each cocktails}}
                     <div class="col-12 col-md-3 text-center">
                         <a href="/profile/cocktail-details/{{_id}}">
                             <figure class="bar-Img">

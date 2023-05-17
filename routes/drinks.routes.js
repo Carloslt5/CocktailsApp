@@ -85,7 +85,7 @@ router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploade
     const user = req.session.currentUser._id
 
     User
-        .findByIdAndUpdate(user, { $addToSet: { favorites: id } })
+        .findByIdAndUpdate(user, { $push: { favorites: id } })
         .then(() =>
             res.redirect(`/cocktail-details/${id}`))
         .catch(err => next(err))

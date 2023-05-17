@@ -14,12 +14,18 @@ const { getUserRole } = require('../utils/role-handling');
 router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
-    console.log(req.session.currentUser.favorites)
+
+    const drinksPromises = req.session.currentUser.favorites.map((idDrink => {
+        return cocktailApiHandler.getById(idDrink).then(response => {
+            return response.data.drinks[0]
+        })
+    }))
+    const drinks = Promise.all(drinksPromises)
 
     const promises = [
-        Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
         User.findById(_id),
-        cocktailApiHandler.getById()
+        Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
+        drinks
     ]
 
     const userRole = getUserRole(req.session.currentUser)
@@ -28,10 +34,11 @@ router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, n
         .all(promises)
         .then(response => {
 
-            const cocktail = response[0]
-            const user = response[1]
+            const user = response[0]
+            const cocktails = response[1]
+            const drinks = response[2]
 
-            res.render('user/profile', { cocktail, user, userRole })
+            res.render('user/profile', { cocktails, user, userRole, drinks })
 
         })
         .catch(err => next(err))
