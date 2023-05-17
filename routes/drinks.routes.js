@@ -85,12 +85,11 @@ router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploade
     const user = req.session.currentUser._id
 
     User
-        .findByIdAndUpdate(user, { $push: { favorites: id } })
+        .findByIdAndUpdate(user, { $addToSet: { favorites: id } })
         .then(() =>
-            res.render(`/cocktail-details/${id}`))
+            res.redirect(`/cocktail-details/${id}`))
         .catch(err => next(err))
 })
-
 
 
 module.exports = router
