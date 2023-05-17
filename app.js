@@ -1,24 +1,19 @@
-require("dotenv").config();
+require("dotenv").config()
+require("./db")
 
-require("./db");
+const { updateLoggedUser } = require("./middlewares/loggedUser.middleware")
 
-const express = require("express");
-const { loggedUser } = require("./middlewares/loggedUser.middleware");
+const express = require("express")
+const app = express()
 
-
-const hbs = require("hbs");
-const app = express();
-
-require("./config")(app);
+require("./config")(app)
 require("./config/session.config")(app)
 
+app.use(updateLoggedUser)
 
-app.use(loggedUser)
-
-app.locals.siteTitle = `CocktailsApp`;
-
+app.locals.siteTitle = `CocktailsApp`
 
 require("./routes")(app)
-require("./error-handling")(app);
+require("./error-handling")(app)
 
-module.exports = app;
+module.exports = app

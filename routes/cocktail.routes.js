@@ -10,6 +10,7 @@ const { isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 
 // Create cocktail (render)
 router.get("/profile/create-cocktail", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
+
     res.render("cocktail/create-cocktail")
 })
 
@@ -29,28 +30,30 @@ router.post("/profile/create-cocktail", checkRoles('ADMIN', 'EDITOR'), uploaderM
             ingredient5, measure1, measure2, measure3, measure4, measure5
         })
         .then(() => res.redirect('/profile'))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 //cocktail details
 router.get('/profile/cocktail-details/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
+
     const { id } = req.params
 
     Cocktail
         .findById(id)
         .populate('owner')
         .then(cocktail => res.render('cocktail/details-cocktail', cocktail))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 //edit cocktail(render)
 router.get('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
+
     const { id } = req.params
 
     Cocktail
         .findById(id)
         .then(cocktail => res.render("cocktail/edit-cocktail", cocktail))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 //edit cocktail(handler)
@@ -63,7 +66,6 @@ router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), upl
         ingredient5, measure1, measure2, measure3, measure4,
         measure5 } = req.body
 
-
     Cocktail
         .findByIdAndUpdate(id, {
             name, type, instructions, image,
@@ -71,20 +73,19 @@ router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), upl
             ingredient5, measure1, measure2, measure3, measure4,
             measure5
         })
-        .then(() => {
-            res.redirect(`/profile/cocktail-details/${id}`)
-        })
-        .catch(err => console.log(err))
+        .then(() => res.redirect(`/profile/cocktail-details/${id}`))
+        .catch(err => next(err))
 })
 
 //Delete
 router.post("/delete-cocktail/:id", (req, res, next) => {
+
     const { id } = req.params
 
     Cocktail
         .findByIdAndDelete(id)
         .then(() => res.redirect('/'))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 

@@ -24,7 +24,6 @@
                 </article>
 
                 {{#if userRole.isAdmin}}
-                {{#if userRole.isOwner}}
                 <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
                     <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
 
@@ -34,9 +33,17 @@
 
                 </div>
                 {{/if}}
+
+                {{#if userRole.isEditor}}
+                <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
+                    <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
+
+                    <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger w-100">
+                    </form>
+
+                </div>
                 {{/if}}
-
-
 
             </div>
 
