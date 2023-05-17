@@ -78,7 +78,7 @@ router.get("/cocktail-details/:id", (req, res, next) => {
         .catch(err => next(err))
 });
 
-//Add favorites
+//Add favorites esto si funciona
 router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { id } = req.params
@@ -90,6 +90,8 @@ router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploade
             res.redirect(`/cocktail-details/${id}`))
         .catch(err => next(err))
 })
+
+
 
 
 module.exports = router
