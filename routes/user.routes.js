@@ -52,7 +52,7 @@ router.get("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req
 })
 
 
-User profile edit(handler)
+//User profile edit(handler)
 router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('profileImg'), (req, res, next) => {
 
     const { id } = req.params
