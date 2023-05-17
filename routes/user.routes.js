@@ -12,10 +12,10 @@ const { getUserRole } = require('../utils/role-handling');
 router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
-
     const promises = [
         Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
         User.findById(_id)
+
     ]
 
     const userRole = getUserRole(req.session.currentUser)
@@ -41,7 +41,7 @@ router.get("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req
 })
 
 
-//User profile edit (handler)
+User profile edit(handler)
 router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('profileImg'), (req, res, next) => {
 
     const { id } = req.params
@@ -67,6 +67,10 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
             .catch(err => next(err))
     }
 
+
+
+
+    //esto lo puso German para que refactoricemos si se puede
     // User
     //     .findByIdAndUpdate(id, { name, lastName, email, profileImg: req.file?.path })
     //     .then(() => {
@@ -89,10 +93,10 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
 })
 
 //Change ROLE
-router.post('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
+// router.post('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
 
 
-}
+// }
 
 
 module.exports = router;
