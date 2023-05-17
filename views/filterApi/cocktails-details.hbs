@@ -1,0 +1,47 @@
+<div class="container">
+    {{#each drinks}}
+    <h1>COCKTAIL: {{strDrink}}</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <img src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
+        </div>
+        <div class="col-12 col-md-9">
+
+            <div class="card px-4 py-4">
+                <h2>{{strDrink}}</h2>
+                <hr>
+                <p>Type: {{strAlcoholic}}</p>
+
+
+            </div>
+            <div class="mt-4">
+                <h2>Ingredients:</h2>
+
+                <ul>
+                    <li>Ingredient: {{strIngredient1}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient3}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient4}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient5}}, Measure:{{strMeasure1}} </li>
+                </ul>
+
+
+                <div class="col">
+                    <div class="card px-4 py-4">
+                        <p>Instructions: {{strInstructions}}</p>
+                    </div>
+                    <a href="/profile" class="btn btn-info">Add Favorite</a>
+                    <a href="javascript:window.external.AddFavorite('')">
+                        Pincha aquí para añadir a favoritos
+                    </a>
+
+                    <form action="#" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>

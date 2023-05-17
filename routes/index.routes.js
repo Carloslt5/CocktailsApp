@@ -72,6 +72,22 @@ router.get("/tequila", (req, res, next) => {
 
 });
 
+//Alcohol render cocktail detail
+router.get("/cocktail-details/:id", (req, res, next) => {
+  const { id } = req.params
+
+  cocktailApiHandler
+    .getById(id)
+    .then(response =>
+      res.render('filterApi/cocktails-details', response.data)
+    )
+    .catch(err => console.log(err))
+
+
+});
+
+
+
 
 module.exports = router;
 

@@ -77,7 +77,6 @@ router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), upl
         .catch(err => console.log(err))
 })
 
-
 //Delete
 router.post("/delete-cocktail/:id", (req, res, next) => {
     const { id } = req.params
@@ -87,5 +86,6 @@ router.post("/delete-cocktail/:id", (req, res, next) => {
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 })
+
 
 module.exports = router;
