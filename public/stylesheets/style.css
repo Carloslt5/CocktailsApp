@@ -58,6 +58,7 @@ hr {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -136,4 +137,8 @@ figure img {
 .drinks-img {
   border-radius: .8em;
   overflow: hidden;
+}
+
+.instructions-text {
+  min-height: 200px;
 }

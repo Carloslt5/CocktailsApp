@@ -9,7 +9,6 @@ const uploaderMiddleware = require('../middlewares/uploader.middleware')
 const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
 const { getUserRole } = require('../utils/role-handling');
 
-
 // User profile (render)
 router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
@@ -20,6 +19,7 @@ router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, n
             return response.data.drinks[0]
         })
     }))
+
     const drinks = Promise.all(drinksPromises)
 
     const promises = [

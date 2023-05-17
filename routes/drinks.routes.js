@@ -68,7 +68,7 @@ router.get("/tequila", (req, res, next) => {
 });
 
 //Alcohol render cocktail detail
-router.get("/cocktail-details/:id", (req, res, next) => {
+router.get("/cocktail-details/:id", isLoggedIn, (req, res, next) => {
 
     const { id } = req.params
 

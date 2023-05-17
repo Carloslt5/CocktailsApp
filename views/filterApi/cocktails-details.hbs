@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
     {{#each drinks}}
     <h1>COCKTAIL en procesob: {{strDrink}}</h1>
     <hr>
@@ -8,26 +8,30 @@
         <div class="col-12 col-md-3">
 
             <figure class="profile-Img h-100">
-                <img class="object-fit-cover roundeed" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
+                <img class="object-fit-cover rounded" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
             </figure>
 
         </div>
         <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
 
-            <div class="card w-100 h-100 justify-content-between">
+            <div class="card w-100 h-100">
 
                 <article>
                     <h2>{{strDrink}}</h2>
                     <hr>
                 </article>
 
-                <p>Type: {{strAlcoholic}}</p>
+                <h4>Type: </h4>
+                <p>{{strAlcoholic}}</p>
             </div>
         </div>
-        <div class="container card mt-12">
-            <h2>Ingredients:</h2>
-            <hr>
 
+    </div>
+    <div class="container card mt-12">
+        <h2>Ingredients:</h2>
+        <hr>
+
+        <div class="col mb-2">
             <ul>
                 <li>Ingredient: {{strIngredient1}}, Measure:{{strMeasure1}} </li>
                 <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure2}} </li>
@@ -46,15 +50,18 @@
                 <li>Ingredient: {{strIngredient15}}, Measure:{{strMeasure15}} </li>
             </ul>
 
-
-            <div class="col">
-                <div class="card px-4 py-4 mb-3">
-                    <p>Instructions: {{strInstructions}}</p>
-                </div>
-                <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
-                    <input type="submit" value="Add Favorite" class="btn btn-custom">
-                </form>
-            </div>
-
         </div>
-        {{/each}}
+
+        <div class="col">
+            <h2>Instructions:</h2>
+            <hr>
+            <div class="card px-4 py-4 mb-3">
+                <p> {{strInstructions}}</p>
+            </div>
+            <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
+                <input type="submit" value="Add Favorite" class="btn btn-custom">
+            </form>
+        </div>
+
+    </div>
+    {{/each}}
