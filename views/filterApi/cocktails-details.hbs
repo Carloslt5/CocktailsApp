@@ -21,10 +21,21 @@
 
                 <ul>
                     <li>Ingredient: {{strIngredient1}}, Measure:{{strMeasure1}} </li>
-                    <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure1}} </li>
-                    <li>Ingredient: {{strIngredient3}}, Measure:{{strMeasure1}} </li>
-                    <li>Ingredient: {{strIngredient4}}, Measure:{{strMeasure1}} </li>
-                    <li>Ingredient: {{strIngredient5}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure2}} </li>
+                    <li>Ingredient: {{strIngredient3}}, Measure:{{strMeasure3}} </li>
+                    <li>Ingredient: {{strIngredient4}}, Measure:{{strMeasure4}} </li>
+                    <li>Ingredient: {{strIngredient5}}, Measure:{{strMeasure5}} </li>
+                    <li>Ingredient: {{strIngredient6}}, Measure:{{strMeasure6}} </li>
+                    <li>Ingredient: {{strIngredient7}}, Measure:{{strMeasure7}} </li>
+                    <li>Ingredient: {{strIngredient8}}, Measure:{{strMeasure8}} </li>
+                    <li>Ingredient: {{strIngredient9}}, Measure:{{strMeasure9}} </li>
+                    <li>Ingredient: {{strIngredient10}}, Measure:{{strMeasure10}} </li>
+                    <li>Ingredient: {{strIngredient11}}, Measure:{{strMeasure11}} </li>
+                    <li>Ingredient: {{strIngredient12}}, Measure:{{strMeasure12}} </li>
+                    <li>Ingredient: {{strIngredient13}}, Measure:{{strMeasure13}} </li>
+                    <li>Ingredient: {{strIngredient14}}, Measure:{{strMeasure14}} </li>
+                    <li>Ingredient: {{strIngredient15}}, Measure:{{strMeasure15}} </li>
+
                 </ul>
 
 
@@ -32,13 +43,8 @@
                     <div class="card px-4 py-4">
                         <p>Instructions: {{strInstructions}}</p>
                     </div>
-                    <a href="/profile" class="btn btn-info">Add Favorite</a>
-                    <a href="javascript:window.external.AddFavorite('')">
-                        Pincha aquí para añadir a favoritos
-                    </a>
-
-                    <form action="#" method="POST" style="display: inline">
-                        <input type="submit" value="Delete" class="btn btn-danger">
+                    <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
+                        <input type="submit" value="Add Favorite" class="btn btn-custom">
                     </form>
                 </div>
 
