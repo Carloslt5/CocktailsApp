@@ -19,7 +19,6 @@ router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, n
         return cocktailApiHandler.getById(idDrink).then(response => {
             return response.data.drinks[0]
         })
-
     }))
     const drinks = Promise.all(drinksPromises)
 
