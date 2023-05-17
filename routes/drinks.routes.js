@@ -4,7 +4,6 @@ const router = express.Router();
 const cocktailApiHandler = require('../services/cocktail-api.service');
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
 const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
-// const { getUserRole } = require('../utils/role-handling');
 const User = require('../models/User.model');
 
 //Alcohol render
@@ -78,6 +77,19 @@ router.get("/cocktail-details/:id", (req, res, next) => {
         .then(({ data }) => res.render('filterApi/cocktails-details', data))
         .catch(err => next(err))
 });
+
+//Add favorites
+router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
+
+    const { id } = req.params
+    const user = req.session.currentUser._id
+
+    User
+        .findByIdAndUpdate(user, { $addToSet: { favorites: id } })
+        .then(() =>
+            res.redirect(`/cocktail-details/${id}`))
+        .catch(err => next(err))
+})
 
 
 module.exports = router
