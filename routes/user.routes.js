@@ -3,6 +3,8 @@ const router = express.Router();
 
 const User = require('../models/User.model')
 const Cocktail = require('../models/Cocktail.model')
+const cocktailApiHandler = require('../services/cocktail-api.service');
+
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
 const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
 const { getUserRole } = require('../utils/role-handling');
@@ -12,10 +14,12 @@ const { getUserRole } = require('../utils/role-handling');
 router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
+    console.log(req.session.currentUser.favorites)
 
     const promises = [
         Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
-        User.findById(_id)
+        User.findById(_id),
+        cocktailApiHandler.getById()
     ]
 
     const userRole = getUserRole(req.session.currentUser)
