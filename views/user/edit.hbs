@@ -1,29 +1,51 @@
-<div class="container py-4">
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <h1> Edit {{user.name}} profile </h1>
+<div class="container py-5">
+    <h1> Edit {{user.name}} profile </h1>
+    <hr>
+    <div class="row">
 
-            <form action="/profile/{{user._id}}/edit" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
-                </div>
-                <div class="mb-3">
-                    <label for="lastName" class="form-label">Last Name:</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" value="{{user.lastName}}">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{user.email}}">
-                </div>
-                <div class="mb-3">
-                    <label for="profileImg" class="form-label">Avatar:</label>
-                    <input type="file" class="form-control" id="profileImg" name="profileImg">
-                    <img class="mt-2" src="{{user.profileImg}}" alt="">
-                </div>
-                <button type="submit" class="btn btn-info">Save Changes</button>
-            </form>
+        <div class="container">
+            <div class="card">
+
+                <form action="/profile/{{user._id}}/edit" method="POST" enctype="multipart/form-data"
+                    class="d-md-flex justify-content-between">
+                    <div class="col-12 col-md-3">
+
+                        <div>
+                            <label for="profileImg" class="form-label"><strong>Current Avatar:</strong></label>
+                            <figure class="profile-Img h-100">
+                                <img class="rounded mb-2" src="{{user.profileImg}}" alt="">
+                            </figure>
+                            <input type="file" class="form-control" id="profileImg" name="profileImg">
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-md-8 d-flex flex-column justify-content-between">
+                        <div class="edit-text">
+                            <div class="mb-3">
+                                <label for="name" class="form-label"><strong>Name:</strong></label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{user.name}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label"><strong>Last Name:</strong></label>
+                                <input type="text" class="form-control" id="lastName" name="lastName"
+                                    value="{{user.lastName}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label"><strong>Email address:</strong></label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{user.email}}">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-custom align-self-md-end">Save
+                            Changes</button>
+
+                    </div>
+                </form>
+
+            </div>
 
         </div>
+
     </div>
 </div>

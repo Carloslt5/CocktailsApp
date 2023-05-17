@@ -9,7 +9,7 @@ const { getUserRole } = require('../utils/role-handling');
 
 
 // User profile (render)
-router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
+router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
 
@@ -84,7 +84,7 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
 
     User
         .findByIdAndDelete(id)
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/profile'))
         .catch(err => next(err))
 })
 

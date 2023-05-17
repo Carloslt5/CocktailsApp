@@ -3,14 +3,14 @@
     <hr>
 
     <div class="row row-gap">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-3">
 
             <figure class="profile-Img h-100">
                 <img class='object-fit-cover rounded' src=" {{user.profileImg}}" alt="{{user.profileImg}}">
             </figure>
 
         </div>
-        <div class="col-12 col-md-8 d-flex flex-column justify-content-between">
+        <div class="col-12 col-md-9 d-flex flex-column justify-content-between">
 
             <div class="card h-100 justify-content-between">
 
@@ -54,17 +54,17 @@
     <div class="container card mt-4">
         <h2>My Favorites</h2>
         <hr>
-        <div class="row justify-content-between">
+        <div class="row">
 
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md-3 text-center">
                 <img src="" alt="">
                 <p>Lorem ipsum dolor sit amet</p>
             </div>
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md-3 text-center">
                 <img src="" alt="">
                 <p>Lorem ipsum dolor sit amet</p>
             </div>
-            <div class="col-12 col-md-4 text-center">
+            <div class="col-12 col-md-3 text-center">
                 <img src="" alt="">
                 <p>Lorem ipsum dolor sit amet</p>
             </div>
@@ -80,14 +80,14 @@
             <div class="card">
                 <div class="d-flex flex-column flex-md-row  justify-content-md-between align-items-center">
                     <h2 class="">My Bar</h2>
-                    <a href="/profile/create-cocktail" class="btn btn-custom align-items-rigth col-12 col-md-4">Create
+                    <a href="/profile/create-cocktail" class="btn btn-custom align-items-rigth col-12 col-md-3">Create
                         cocktails</a>
                 </div>
                 <hr>
                 <div class="row">
 
                     {{#each cocktail}}
-                    <div class="col-12 col-md-4 text-center">
+                    <div class="col-12 col-md-3 text-center">
                         <a href="/profile/cocktail-details/{{_id}}">
                             <figure class="bar-Img">
                                 <img class='object-fit-cover rounded' src="{{image}}" alt="">
@@ -113,14 +113,14 @@
             <div class="card">
                 <div class="d-flex flex-column flex-md-row  justify-content-md-between align-items-center">
                     <h2 class="">My Bar</h2>
-                    <a href="/profile/create-cocktail" class="btn btn-custom align-items-rigth col-12 col-md-4">Create
+                    <a href="/profile/create-cocktail" class="btn btn-custom align-items-rigth col-12 col-md-3">Create
                         cocktails</a>
                 </div>
                 <hr>
                 <div class="row">
 
                     {{#each cocktail}}
-                    <div class="col-12 col-md-4 text-center">
+                    <div class="col-12 col-md-3 text-center">
                         <a href="/profile/cocktail-details/{{_id}}">
                             <figure class="bar-Img">
                                 <img class='object-fit-cover rounded' src="{{image}}" alt="">
