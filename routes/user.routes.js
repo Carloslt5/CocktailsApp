@@ -88,6 +88,11 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
         .catch(err => next(err))
 })
 
+//Change ROLE
+router.post('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
+
+
+}
 
 
 module.exports = router;
