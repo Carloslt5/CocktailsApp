@@ -49,7 +49,15 @@ router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, n
 //User profile edit (render)
 router.get("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
-    res.render("user/edit", { user: req.session.currentUser })
+    const { id } = req.params
+
+    User
+        .findById(id)
+        .then(user => {
+            res.render("user/edit", user)
+        })
+        .catch(err => next(err))
+
 })
 
 
