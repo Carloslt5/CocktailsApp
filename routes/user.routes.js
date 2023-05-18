@@ -67,34 +67,12 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
     const { id } = req.params
     const { name, lastName, email } = req.body
 
-    if (req.file) {
-
-        const { path: profileImg } = req.file
-
-        User
-            .findByIdAndUpdate(id, { name, lastName, email, profileImg })
-            .then(() => {
-                res.redirect('/profile')
-            })
-            .catch(err => next(err))
-    } else {
-
-        User
-            .findByIdAndUpdate(id, { name, lastName, email })
-            .then(() => {
-                res.redirect('/profile')
-            })
-            .catch(err => next(err))
-    }
-
-    //esto lo puso German para que refactoricemos si se puede
-    // User
-    //     .findByIdAndUpdate(id, { name, lastName, email, profileImg: req.file?.path })
-    //     .then(() => {
-    //         res.redirect("/profile")
-    //     })
-    //     .catch(err => next(err))
-
+    User
+        .findByIdAndUpdate(id, { name, lastName, email, profileImg: req.file?.path })
+        .then(() => {
+            res.redirect("/profile")
+        })
+        .catch(err => next(err))
 
 })
 

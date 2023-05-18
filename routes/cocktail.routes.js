@@ -30,6 +30,7 @@ router.post("/profile/create-cocktail/form", isLoggedIn, checkRoles('ADMIN', 'ED
         })
         .then(() => res.redirect('/profile'))
         .catch(err => next(err))
+
 })
 
 //cocktail details
@@ -53,13 +54,15 @@ router.get('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req
         .findById(id)
         .then(cocktail => res.render("cocktail/edit-cocktail", cocktail))
         .catch(err => next(err))
+
+
 })
 
 //edit cocktail(handler)
 router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { id } = req.params
-    const { path: image } = req.file
+    // const { path: image } = req.file
     const { name, type, instructions,
         ingredient1, ingredient2, ingredient3, ingredient4,
         ingredient5, measure1, measure2, measure3, measure4,
@@ -67,14 +70,17 @@ router.post('/edit-cocktail/:id', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), upl
 
     Cocktail
         .findByIdAndUpdate(id, {
-            name, type, instructions, image,
+            name, type, instructions, image: req.file?.path,
             ingredient1, ingredient2, ingredient3, ingredient4,
             ingredient5, measure1, measure2, measure3, measure4,
             measure5
         })
         .then(() => res.redirect(`/profile/cocktail-details/${id}`))
         .catch(err => next(err))
+
 })
+
+
 
 //Delete
 router.post("/delete-cocktail/:id", (req, res, next) => {
