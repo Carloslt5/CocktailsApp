@@ -95,9 +95,7 @@ router.get('/users', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
 
     User
         .find()
-        .then(allUsers => {
-            res.render('user/list', { allUsers })
-        })
+        .then(allUsers => res.render('user/list', { allUsers }))
         .catch(err => console.log(err))
 })
 
@@ -107,9 +105,7 @@ router.get("/:id", isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
 
     User
         .findById(id)
-        .then(user => {
-            res.render('user/profile', { user })
-        })
+        .then(user => res.render('user/profile', { user }))
         .catch(err => next(err))
 })
 
