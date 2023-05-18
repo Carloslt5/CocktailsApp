@@ -59,7 +59,8 @@ router.post("/login", (req, res, next) => {
             }
 
             req.session.currentUser = foundUser
-            res.redirect('/profile')
+            const { id } = req.session.currentUser._id
+            res.redirect('/profile/:id')
         })
 })
 

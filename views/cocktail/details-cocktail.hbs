@@ -13,7 +13,7 @@
         </div>
         <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
 
-            <div class="card w-100 h-100 justify-content-between">
+            <div class="card w-100 h-70 justify-content-between-top">
 
                 <article>
                     <h2>{{name}}</h2>
@@ -31,13 +31,33 @@
         <hr>
 
         <ul>
+            {{#if ingredient1}}
+            <li><strong> Ingredient:</strong> {{ingredient1}} <strong>Measure:</strong>{{measure1}}</li>
+            {{/if}}
+
+            {{#if ingredient2}}
+            <li><strong>Ingredient:</strong> {{ingredient2}} <strong>Measure:</strong>{{measure2}}</li>
+            {{/if}}
+
+            {{#if ingredient3}}
+            <li><strong>Ingredient:</strong> {{ingredient3}} <strong>Measure:</strong>{{measure3}}</li>
+            {{/if}}
+
+            {{#if ingredient4}}
+            <li><strong>Ingredient:</strong>{{ingredient4}} <strong>Measure:</strong>{{measure4}}</li>
+            {{/if}}
+
+            {{#if ingredient5}}
+            <li><strong>Ingredient:</strong> {{ingredient5}} <strong>Measure:</strong>{{measure5}}</li>
+            {{/if}}
+        </ul>
+        {{!-- <ul>
             <li>Ingredient: {{ingredient1}}, Measure:{{measure1}} </li>
             <li>Ingredient: {{ingredient2}}, Measure:{{measure2}} </li>
             <li>Ingredient: {{ingredient3}}, Measure:{{measure3}} </li>
             <li>Ingredient: {{ingredient4}}, Measure:{{measure4}} </li>
             <li>Ingredient: {{ingredient5}}, Measure:{{measure5}} </li>
-        </ul>
-
+        </ul> --}}
 
         <div class="col">
             <div class="card px-4 py-4 mb-3">

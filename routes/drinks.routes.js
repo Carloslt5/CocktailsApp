@@ -16,7 +16,6 @@ router.get("/alcohol", (req, res, next) => {
 
 });
 
-
 //Non Alcohol render
 router.get("/non-alcohol", (req, res, next) => {
 

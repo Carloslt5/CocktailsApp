@@ -35,6 +35,10 @@
                   <a class="nav-link" href="#">Random</a>
                </li>
 
+               <li class="nav-item">
+                  <a class="nav-link" href="/profile/users/list">Users</a>
+               </li>
+
             </ul>
             <ul class="navbar-nav w-20">
                <li class="nav-item dropdown">
@@ -46,7 +50,7 @@
                      <p class="mb-0 mx-2">{{loggedUser.name}}</p>
                   </a>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item text-end" href="/profile">My Profile</a></li>
+                     <li><a class="dropdown-item text-end" href="/profile/{{loggedUser._id}}">My Profile</a></li>
                      <hr class="dropdown-divider">
                      <li class="dropdown-item">
                         <form action="/logout" method="POST">

@@ -11,11 +11,12 @@ const { getUserRole } = require('../utils/role-handling');
 
 
 // User profile (render)
-router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
+router.get("/:id", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
 
     const { _id } = req.session.currentUser
+    const userFav = req.session.currentUser.favorites
 
-    const drinksPromises = req.session.currentUser.favorites.map((idDrink => {
+    const drinksPromises = userFav.map((idDrink => {
         return cocktailApiHandler.getById(idDrink).then(response => {
             return response.data.drinks[0]
         })
@@ -65,7 +66,7 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
         User
             .findByIdAndUpdate(id, { name, lastName, email, profileImg })
             .then(() => {
-                res.redirect("/profile")
+                res.redirect("/profile/:id")
             })
             .catch(err => next(err))
     } else {
@@ -73,13 +74,10 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
         User
             .findByIdAndUpdate(id, { name, lastName, email })
             .then(() => {
-                res.redirect("/profile")
+                res.redirect("/profile/:id")
             })
             .catch(err => next(err))
     }
-
-
-
 
     //esto lo puso German para que refactoricemos si se puede
     // User
@@ -91,6 +89,30 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
 
 
 })
+
+//Users list
+router.get('/users/list', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
+
+    User
+        .find()
+        .then(allUsers => {
+            res.render('user/list', { allUsers })
+        })
+        .catch(err => console.log(err))
+})
+
+// router.get("/:id", isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
+
+//     const { id } = req.params
+
+//     User
+//         .findById(id)
+//         .then(user => {
+//             res.render('user/profile', { user })
+//         })
+//         .catch(err => next(err))
+//     // res.render("user/profile", { user: req.session.currentUser })
+// })
 
 //User profile delete (handler)
 router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
@@ -104,9 +126,8 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
 })
 
 //Change ROLE
-// router.post('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
-
-
+// router.get('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
+//     res.render("/profile")
 // }
 
 

@@ -1,0 +1,20 @@
+<main>
+
+    <div class="container my-4">
+        <div class="row py-4 px-2 bg-wrap">
+
+            {{#each allUsers}}
+            <div class="col-12 col-md-3">
+                <a href="#">
+                    <div class="drinks-img mb-2">
+                        <img src="{{profileImg}}" alt="">
+                    </div>
+                    <p><strong class="text-white">{{name}} {{lastName}}</strong></p>
+                </a>
+            </div>
+            {{/each}}
+
+        </div>
+    </div>
+
+</main>

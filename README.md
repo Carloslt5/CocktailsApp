@@ -68,4 +68,5 @@ URL
 | POST          | `/:id/edit-cocktail/:id(cocktail)`  | Handler edit cocktail created   |
 | POST          | `/:id/delete-cocktail/:id(cocktail)`| Delete cocktail created 	    |
 | POST          | `/:id/role`               | Handler role 	                                |
+| POST          | `/profile/users`               | Render users list	                                |
 | GET         	| `/api/cocktail` 	    | Cocktail `Array` 	                            | ✅  
