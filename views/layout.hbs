@@ -34,7 +34,7 @@
                <li class="nav-item">
                   <a class="nav-link" href="#">Random</a>
                </li>
-               {{#if loggedUser.role.isAdmin}}
+               {{#if userIsAdmin}}
                <li class="nav-item">
                   <a class="nav-link" href="/profile/users">Users</a>
                </li>
@@ -94,7 +94,6 @@
                   </ul>
                </li>
             </ul>
-
 
          </div>
       </div>
