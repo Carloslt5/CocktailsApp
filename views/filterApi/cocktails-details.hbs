@@ -12,24 +12,31 @@
             </figure>
 
         </div>
-        <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
+        <div class="card col-12 col-md-9 d-flex flex-colum justify-content-between">
 
-            <div class="card w-100 h-50 justify-content-between">
-                <div class="card w-100 h-100">
+            <div class="w-100 h-100 justify-content-between">
 
-                    <article>
-                        <h2>{{strDrink}}</h2>
-                        <hr>
-                    </article>
-
+                <article>
+                    <h2>{{strDrink}}</h2>
+                    <hr>
                     <h4>Type: </h4>
                     <p>{{strAlcoholic}}</p>
-                </div>
+                </article>
+
+                <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
+                    <input type="submit" value="Add Favorite" class="btn btn-custom">
+                </form>
+
             </div>
 
         </div>
+
+    </div>
+
+    <div class="row">
+
         <div class="container card mt-12">
-            <h2>Ingredients:</h2>
+            <h1>Ingredients:</h1>
             <hr>
 
             <ul>
@@ -109,16 +116,18 @@
                 {{/if}}
             </ul>
 
+            <div>
 
-            <div class="col">
-                <div class="card px-4 py-4 mb-3">
-                    <p>Instructions: {{strInstructions}}</p>
-                    <p>asdasdasdasddasdsad</p>
+                <h1>Instructions:</h1>
+                <hr>
+                <div class="card px-2 py-2 instructions-text">
+                    <p>{{strInstructions}}</p>
                 </div>
-                <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
-                    <input type="submit" value="Add Favorite" class="btn btn-custom">
-                </form>
+
             </div>
 
         </div>
-        {{/each}}
+
+    </div>
+</div>
+{{/each}}

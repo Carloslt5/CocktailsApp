@@ -34,10 +34,11 @@
                <li class="nav-item">
                   <a class="nav-link" href="#">Random</a>
                </li>
-
+               {{#if loggedUser.role.isAdmin}}
                <li class="nav-item">
                   <a class="nav-link" href="/profile/users">Users</a>
                </li>
+               {{/if}}
 
             </ul>
             <ul class="navbar-nav w-20">
