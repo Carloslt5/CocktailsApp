@@ -9,13 +9,12 @@ const { isLoggedIn, checkRoles } = require('../middlewares/route-guard')
 
 
 // Create cocktail (render)
-router.get("/profile/create-cocktail", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
-
+router.get("/profile/create-cocktail/form", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), (req, res, next) => {
     res.render("cocktail/create-cocktail")
 })
 
 //Create cocktail (handler)
-router.post("/profile/create-cocktail", checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
+router.post("/profile/create-cocktail/form", isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { _id: owner } = req.session.currentUser
     const { path: image } = req.file

@@ -10,8 +10,7 @@ const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
 const { getUserRole } = require('../utils/role-handling');
 
 // User profile (render)
-router.get("/:id", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
-
+router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
     const { _id } = req.session.currentUser
     const userFav = req.session.currentUser.favorites
 
@@ -44,6 +43,7 @@ router.get("/:id", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res
         })
         .catch(err => next(err))
 })
+
 
 
 //User profile edit (render)
@@ -91,7 +91,7 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
 })
 
 //Users list
-router.get('/users/list', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
+router.get('/users', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
 
     User
         .find()
@@ -101,18 +101,17 @@ router.get('/users/list', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-// router.get("/:id", isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
+router.get("/:id", isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
 
-//     const { id } = req.params
+    const { id } = req.params
 
-//     User
-//         .findById(id)
-//         .then(user => {
-//             res.render('user/profile', { user })
-//         })
-//         .catch(err => next(err))
-//     // res.render("user/profile", { user: req.session.currentUser })
-// })
+    User
+        .findById(id)
+        .then(user => {
+            res.render('user/profile', { user })
+        })
+        .catch(err => next(err))
+})
 
 //User profile delete (handler)
 router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
