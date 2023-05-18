@@ -30,10 +30,11 @@
                     <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
                         <input type="submit" value="Delete" class="btn btn-danger w-100">
                     </form>
-                    {{!--
-                    <form action="/profile/{{user._id}}/role" method="POST">
+
+                    <form action="profile/{{user._id}}/role" method="POST">
                         <input type="submit" value="Rol EDITOR" class="btn btn-dark">
-                    </form> --}}
+                    </form>
+
                 </div>
                 {{/if}}
 
@@ -46,6 +47,17 @@
                     </form>
                 </div>
                 {{/if}}
+
+                {{#if userRole.isBasic}}
+                <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
+                    <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
+
+                    <form action="/profile/{{user._id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger w-100">
+                    </form>
+                </div>
+                {{/if}}
+
             </div>
         </div>
     </div>
@@ -113,7 +125,8 @@
             <div class="card">
                 <div class="d-flex flex-column flex-md-row  justify-content-md-between align-items-center">
                     <h2 class="">My Bar</h2>
-                    <a href="/profile/create-cocktail" class="btn btn-custom align-items-rigth col-12 col-md-3">Create
+                    <a href="/profile/create-cocktail/form"
+                        class="btn btn-custom align-items-rigth col-12 col-md-3">Create
                         cocktails</a>
                 </div>
                 <hr>

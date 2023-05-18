@@ -125,9 +125,16 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
 })
 
 //Change ROLE
-// router.get('/:id/rol'), checkRoles('ADMIN'), (req, res, next) => {
-//     res.render("/profile")
-// }
+router.post('/:id/role', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
+    const { id } = req.params
+    res.send("HOLAAAAAAAA VOY A CAMBIAR ROLES")
+    // User
+    //     .findByIdAndUpdate(id, { role: 'EDITOR' })
+    //     .then(() => res.redirect('/'))
+    //     .catch(err => console.log(err))
+})
+
+
 
 
 module.exports = router;

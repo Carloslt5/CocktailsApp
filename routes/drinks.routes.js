@@ -78,7 +78,7 @@ router.get("/cocktail-details/:id", isLoggedIn, (req, res, next) => {
 });
 
 //Add favorites esto si funciona
-router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR'), uploaderMiddleware.single('image'), (req, res, next) => {
+router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { id } = req.params
     const user = req.session.currentUser._id
