@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
     {{#each drinks}}
     <h1>COCKTAIL en procesob: {{strDrink}}</h1>
     <hr>
@@ -8,185 +8,56 @@
         <div class="col-12 col-md-3">
 
             <figure class="profile-Img h-100">
-                <img class="object-fit-cover roundeed" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
+                <img class="object-fit-cover rounded" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
             </figure>
 
         </div>
         <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
 
             <div class="card w-100 h-50 justify-content-between">
+                <div class="card w-100 h-100">
 
-                <article>
-                    <h2>{{strDrink}}</h2>
-                    <hr>
-                </article>
+                    <article>
+                        <h2>{{strDrink}}</h2>
+                        <hr>
+                    </article>
 
-                <p>Type: {{strAlcoholic}}</p>
+                    <h4>Type: </h4>
+                    <p>{{strAlcoholic}}</p>
+                </div>
             </div>
+
         </div>
         <div class="container card mt-12">
             <h2>Ingredients:</h2>
             <hr>
 
-            {{!-- <ul>
-                <li>Ingredient: {{strIngredient1}} Measure:{{strMeasure1}} </li>
-                <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure2}} </li>
-                <li>Ingredient: {{strIngredient3}}, Measure:{{strMeasure3}} </li>
-                <li>Ingredient: {{strIngredient4}}, Measure:{{strMeasure4}} </li>
-                <li>Ingredient: {{strIngredient5}}, Measure:{{strMeasure5}} </li>
-                <li>Ingredient: {{strIngredient6}}, Measure:{{strMeasure6}} </li>
-                <li>Ingredient: {{strIngredient7}}, Measure:{{strMeasure7}} </li>
-                <li>Ingredient: {{strIngredient8}}, Measure:{{strMeasure8}} </li>
-                <li>Ingredient: {{strIngredient9}}, Measure:{{strMeasure9}} </li>
-                <li>Ingredient: {{strIngredient10}}, Measure:{{strMeasure10}} </li>
-                <li>Ingredient: {{strIngredient11}}, Measure:{{strMeasure11}} </li>
-                <li>Ingredient: {{strIngredient12}}, Measure:{{strMeasure12}} </li>
-                <li>Ingredient: {{strIngredient13}}, Measure:{{strMeasure13}} </li>
-                <li>Ingredient: {{strIngredient14}}, Measure:{{strMeasure14}} </li>
-                <li>Ingredient: {{strIngredient15}}, Measure:{{strMeasure15}} </li>
-            </ul> --}}
-            {{!-- <ul>
-                {{#if strIngredient1}}
-                <li>Ingredient: {{strIngredient1}} ---------- Measure1:{{strMeasure1}} </li>
-                {{/if}}
+            <div class="col mb-2">
+                <ul>
+                    <li>Ingredient: {{strIngredient1}}, Measure:{{strMeasure1}} </li>
+                    <li>Ingredient: {{strIngredient2}}, Measure:{{strMeasure2}} </li>
+                    <li>Ingredient: {{strIngredient3}}, Measure:{{strMeasure3}} </li>
+                    <li>Ingredient: {{strIngredient4}}, Measure:{{strMeasure4}} </li>
+                    <li>Ingredient: {{strIngredient5}}, Measure:{{strMeasure5}} </li>
+                    <li>Ingredient: {{strIngredient6}}, Measure:{{strMeasure6}} </li>
+                    <li>Ingredient: {{strIngredient7}}, Measure:{{strMeasure7}} </li>
+                    <li>Ingredient: {{strIngredient8}}, Measure:{{strMeasure8}} </li>
+                    <li>Ingredient: {{strIngredient9}}, Measure:{{strMeasure9}} </li>
+                    <li>Ingredient: {{strIngredient10}}, Measure:{{strMeasure10}} </li>
+                    <li>Ingredient: {{strIngredient11}}, Measure:{{strMeasure11}} </li>
+                    <li>Ingredient: {{strIngredient12}}, Measure:{{strMeasure12}} </li>
+                    <li>Ingredient: {{strIngredient13}}, Measure:{{strMeasure13}} </li>
+                    <li>Ingredient: {{strIngredient14}}, Measure:{{strMeasure14}} </li>
+                    <li>Ingredient: {{strIngredient15}}, Measure:{{strMeasure15}} </li>
+                </ul>
 
-                {{#if strIngredient2}}
-                <li>Ingredient: {{strIngredient2}} ---------- Measure:{{strMeasure2}} </li>
-                {{/if}}
-
-                {{#if strIngredient3}}
-                <li>Ingredient: {{strIngredient3}} ---------- Measure:{{strMeasure3}} </li>
-                {{/if}}
-
-                {{#if strIngredient4}}
-                <li>Ingredient: {{strIngredient4}} ---------- strMeasure4:{{strMeasure4}} </li>
-                {{/if}}
-
-                {{#if strIngredient5}}
-                <li>Ingredient: {{strIngredient5}} ---------- Measure:{{strMeasure5}} </li>
-                {{/if}}
-
-                {{#if strIngredient6}}
-                <li>Ingredient: {{strIngredient6}} ---------- Measure:{{strMeasure6}} </li>
-                {{/if}}
-
-                {{#if strIngredient7}}
-                <li>Ingredient: {{strIngredient7}} ---------- Measure:{{strMeasure7}} </li>
-                {{/if}}
-
-                {{#if strIngredient8}}
-                <li>Ingredient: {{strIngredient8}} ---------- Measure:{{strMeasure8}} </li>
-                {{/if}}
-
-                {{#if strIngredient9}}
-                <li>Ingredient: {{strIngredient9}} ---------- Measure:{{strMeasure9}} </li>
-                {{/if}}
-
-                {{#if strIngredient10}}
-                <li>Ingredient: {{strIngredient10}} ---------- Measure:{{strMeasure10}} </li>
-                {{/if}}
-
-                {{#if strIngredient11}}
-                <li>Ingredient: {{strIngredient11}} ---------- Measure:{{strMeasure11}} </li>
-                {{/if}}
-
-                {{#if strIngredient12}}
-                <li>Ingredient: {{strIngredient12}} ---------- Measure:{{strMeasure12}} </li>
-                {{/if}}
-
-                {{#if strIngredient13}}
-                <li>Ingredient: {{strIngredient13}} ---------- Measure:{{strMeasure13}} </li>
-                {{/if}}
-
-                {{#if strIngredient14}}
-                <li>Ingredient: {{strIngredient14}} ---------- Measure:{{strMeasure14}} </li>
-                {{/if}}
-
-                {{#if strIngredient15}}
-                <li>Ingredient: {{strIngredient15}} ---------- Measure:{{strMeasure15}} </li>
-                {{/if}}
-            </ul> --}}
-            <ul>
-                {{#if strIngredient1}}
-                <li><strong>Ingredient:</strong> {{strIngredient1}} ---------- <strong>Measure1:</strong>{{strMeasure1}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient2}}
-                <li><strong>Ingredient:</strong> {{strIngredient2}} ---------- <strong>Measure:</strong>{{strMeasure2}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient3}}
-                <li><strong>Ingredient:</strong> {{strIngredient3}} ---------- <strong>Measure:</strong>{{strMeasure3}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient4}}
-                <li><strong>Ingredient:</strong> {{strIngredient4}}
-                    ----------<strong>strMeasure4:</strong>{{strMeasure4}} </li>
-                {{/if}}
-
-                {{#if strIngredient5}}
-                <li><strong>Ingredient:</strong> {{strIngredient5}} ---------- <strong>Measure:</strong>{{strMeasure5}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient6}}
-                <li><strong>Ingredient:</strong> {{strIngredient6}} ---------- <strong>Measure:</strong>{{strMeasure6}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient7}}
-                <li><strong>Ingredient:</strong> {{strIngredient7}} ---------- <strong>Measure:</strong>{{strMeasure7}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient8}}
-                <li><strong>Ingredient:</strong> {{strIngredient8}} ---------- <strong>Measure:</strong>{{strMeasure8}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient9}}
-                <li><strong>Ingredient:</strong> {{strIngredient9}} ---------- <strong>Measure:</strong>{{strMeasure9}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient10}}
-                <li><strong>Ingredient:</strong> {{strIngredient10}} ----------<strong>Measure:</strong>{{strMeasure10}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient11}}
-                <li><strong>Ingredient:</strong> {{strIngredient11}} ----------<strong>Measure:</strong>{{strMeasure11}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient12}}
-                <li><strong>Ingredient:</strong> {{strIngredient12}} ----------<strong>Measure:</strong>{{strMeasure12}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient13}}
-                <li><strong>Ingredient:</strong> {{strIngredient13}} ----------<strong>Measure:</strong>{{strMeasure13}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient14}}
-                <li><strong>Ingredient:</strong> {{strIngredient14}} ----------<strong>Measure:</strong>{{strMeasure14}}
-                </li>
-                {{/if}}
-
-                {{#if strIngredient15}}
-                <li><strong>Ingredient:</strong> {{strIngredient15}} ----------<strong>Measure:</strong>{{strMeasure15}}
-                </li>
-                {{/if}}
-            </ul>
-
+            </div>
 
             <div class="col">
+                <h2>Instructions:</h2>
+                <hr>
                 <div class="card px-4 py-4 mb-3">
-                    <p>Instructions: {{strInstructions}}</p>
+                    <p> {{strInstructions}}</p>
                 </div>
                 <form action="/{{idDrink}}/favorites" method="POST" style="display: inline">
                     <input type="submit" value="Add Favorite" class="btn btn-custom">
