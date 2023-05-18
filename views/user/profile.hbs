@@ -23,7 +23,7 @@
                     <p>{{user.role}}</p>
                 </article>
 
-                {{#if userRole.isAdmin}}
+                {{#if userIsAdmin}}
                 <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
                     <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
 
@@ -38,7 +38,7 @@
                 </div>
                 {{/if}}
 
-                {{#if userRole.isEditor}}
+                {{#if userIsEditor}}
                 <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
                     <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
 
@@ -48,7 +48,7 @@
                 </div>
                 {{/if}}
 
-                {{#if userRole.isBasic}}
+                {{#if userIsBasic}}
                 <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
                     <a href="/profile/{{user._id}}/edit" class="btn btn-custom ">Edit</a>
 

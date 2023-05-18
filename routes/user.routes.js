@@ -66,7 +66,7 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
         User
             .findByIdAndUpdate(id, { name, lastName, email, profileImg })
             .then(() => {
-                res.redirect("/profile/:id")
+                res.redirect('/profile')
             })
             .catch(err => next(err))
     } else {
@@ -74,7 +74,7 @@ router.post("/:id/edit", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), upl
         User
             .findByIdAndUpdate(id, { name, lastName, email })
             .then(() => {
-                res.redirect("/profile/:id")
+                res.redirect('/profile')
             })
             .catch(err => next(err))
     }
@@ -127,11 +127,11 @@ router.post("/:id/delete", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (
 //Change ROLE
 router.post('/:id/role', isLoggedIn, checkRoles('ADMIN'), (req, res, next) => {
     const { id } = req.params
-    res.send("HOLAAAAAAAA VOY A CAMBIAR ROLES")
-    // User
-    //     .findByIdAndUpdate(id, { role: 'EDITOR' })
-    //     .then(() => res.redirect('/'))
-    //     .catch(err => console.log(err))
+
+    User
+        .findByIdAndUpdate(id, { role: 'EDITOR' })
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err))
 })
 
 
