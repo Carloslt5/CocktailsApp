@@ -2,8 +2,7 @@
     <h1>COCKTAIL: {{name}}</h1>
     <hr>
 
-    <div class="row row-gap mb-4" id="cocktails-details-top">
-
+    <div class="row row-gap mb-3">
         <div class="col-12 col-md-3">
 
             <figure class="profile-Img h-100">
@@ -11,9 +10,9 @@
             </figure>
 
         </div>
-        <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
+        <div class="col-12 col-md-9 d-flex flex-column justify-content-between">
 
-            <div class="card w-100 h-70 justify-content-between-top">
+            <div class="card w-100 h-100 justify-content-between">
 
                 <article>
                     <h2>{{name}}</h2>
@@ -26,54 +25,59 @@
                     <p>{{owner.name}}</p>
                 </article>
 
+                <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
+                    <a href="/edit-cocktail/{{_id}}" class="btn btn-custom ">Edit</a>
+                    <form action="/delete-cocktail/{{_id}}" method="POST" style="display: inline">
+                        <input type="submit" value="Delete" class="btn btn-danger col-12">
+                    </form>
+                </div>
+
             </div>
         </div>
-
     </div>
 
     <div class="container card mt-12">
-        <h2>Ingredients:</h2>
-        <hr>
 
-        <ul>
-            {{#if ingredient1}}
-            <li><strong> Ingredient:</strong> {{ingredient1}} <strong>Measure:</strong>{{measure1}}</li>
-            {{/if}}
+        <div class="row ">
 
-            {{#if ingredient2}}
-            <li><strong>Ingredient:</strong> {{ingredient2}} <strong>Measure:</strong>{{measure2}}</li>
-            {{/if}}
+            <div>
+                <h2>Ingredients:</h2>
+                <hr>
 
-            {{#if ingredient3}}
-            <li><strong>Ingredient:</strong> {{ingredient3}} <strong>Measure:</strong>{{measure3}}</li>
-            {{/if}}
+                <ul>
+                    {{#if ingredient1}}
+                    <li><strong> Ingredient:</strong> {{ingredient1}} <strong>Measure:</strong>{{measure1}}</li>
+                    {{/if}}
 
-            {{#if ingredient4}}
-            <li><strong>Ingredient:</strong>{{ingredient4}} <strong>Measure:</strong>{{measure4}}</li>
-            {{/if}}
+                    {{#if ingredient2}}
+                    <li><strong>Ingredient:</strong> {{ingredient2}} <strong>Measure:</strong>{{measure2}}</li>
+                    {{/if}}
 
-            {{#if ingredient5}}
-            <li><strong>Ingredient:</strong> {{ingredient5}} <strong>Measure:</strong>{{measure5}}</li>
-            {{/if}}
-        </ul>
+                    {{#if ingredient3}}
+                    <li><strong>Ingredient:</strong> {{ingredient3}} <strong>Measure:</strong>{{measure3}}</li>
+                    {{/if}}
 
+                    {{#if ingredient4}}
+                    <li><strong>Ingredient:</strong>{{ingredient4}} <strong>Measure:</strong>{{measure4}}</li>
+                    {{/if}}
 
-        <div class="col">
-            <h2>Instructions: </h2>
-            <hr>
-
-            <div class="card px-2 py-2 mb-3 instructions-text">
-                <p>{{instructions}}</p>
+                    {{#if ingredient5}}
+                    <li><strong>Ingredient:</strong> {{ingredient5}} <strong>Measure:</strong>{{measure5}}</li>
+                    {{/if}}
+                </ul>
             </div>
 
+            <div>
+                <h2 class="mt-3">Instructions: </h2>
+                <hr>
 
-            <div class="d-flex flex-column flex-md-row justify-content-end justify-content-md-end gap-2">
-                <a href="/edit-cocktail/{{_id}}" class="btn btn-custom ">Edit</a>
-                <form action="/delete-cocktail/{{_id}}" method="POST" style="display: inline">
-                    <input type="submit" value="Delete" class="btn btn-danger col-12">
-                </form>
+                <div class="card px-2 py-2 instructions-text">
+                    <p>{{instructions}}</p>
+                </div>
             </div>
 
         </div>
 
     </div>
+
+</div>
