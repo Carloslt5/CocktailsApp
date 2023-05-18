@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
     {{#each drinks}}
     <h1>COCKTAIL en procesob: {{strDrink}}</h1>
     <hr>
@@ -8,21 +8,25 @@
         <div class="col-12 col-md-3">
 
             <figure class="profile-Img h-100">
-                <img class="object-fit-cover roundeed" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
+                <img class="object-fit-cover rounded" src="{{strDrinkThumb}}" alt="{{strDrinkThumb}}">
             </figure>
 
         </div>
         <div class="col-12 col-md-9 d-flex flex-colum justify-content-between">
 
             <div class="card w-100 h-50 justify-content-between">
+                <div class="card w-100 h-100">
 
-                <article>
-                    <h2>{{strDrink}}</h2>
-                    <hr>
-                </article>
+                    <article>
+                        <h2>{{strDrink}}</h2>
+                        <hr>
+                    </article>
 
-                <p>Type: {{strAlcoholic}}</p>
+                    <h4>Type: </h4>
+                    <p>{{strAlcoholic}}</p>
+                </div>
             </div>
+
         </div>
         <div class="container card mt-12">
             <h2>Ingredients:</h2>
