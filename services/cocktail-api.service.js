@@ -36,6 +36,10 @@ class CocktailApiHandler {
         return this.axiosApp.get(`lookup.php?i=${idDrinks}`)
     }
 
+    getRandom() {
+        return this.axiosApp.get('random.php')
+    }
+
 }
 
 const cocktailApiHandler = new CocktailApiHandler()
