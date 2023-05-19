@@ -84,9 +84,11 @@ router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC')
     const user = req.session.currentUser._id
 
     User
-        .findByIdAndUpdate(user, { $push: { favorites: id } })
-        .then(() =>
-            res.redirect(`/cocktail-details/${id}`))
+        .findByIdAndUpdate(user, { $push: { favorites: id } }, { new: true })
+        .then(updateUser => {
+            req.session.currentUser = updateUser
+        })
+        .then(() => res.redirect(`/cocktail-details/${id}`))
         .catch(err => next(err))
 })
 
