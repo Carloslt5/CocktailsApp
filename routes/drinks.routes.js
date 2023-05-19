@@ -77,16 +77,18 @@ router.get("/cocktail-details/:id", isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 });
 
-//Add favorites esto si funciona
+//Add favorites 
 router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('image'), (req, res, next) => {
 
     const { id } = req.params
     const user = req.session.currentUser._id
 
     User
-        .findByIdAndUpdate(user, { $push: { favorites: id } })
-        .then(() =>
-            res.redirect(`/cocktail-details/${id}`))
+        .findByIdAndUpdate(user, { $push: { favorites: id } }, { new: true })
+        .then(updateUser => {
+            req.session.currentUser = updateUser
+        })
+        .then(() => res.redirect(`/cocktail-details/${id}`))
         .catch(err => next(err))
 })
 

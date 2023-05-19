@@ -55,18 +55,19 @@ URL
 | GET         	| `/vodka` 	                | Vodka list 	                                |
 | GET         	| `/gin` 	                | Gin list 	                                    |
 | GET       	| `/tequila` 	            | Tequila list	                                |
-| GET           | `/:id/details` 	        | Render details api cocktels 	                |
-| POST         	| `/:id/favourite`          | Mark as favourite in user profile 	        |
+| GET       	| `/random` 	            | Cocktail Surprise	                                |
+| GET           | `/cocktail-details/:id` 	        | Render details api cocktels 	                |
+| POST         	| `/:id/favorites`          | Mark as favourite in user profile 	        |
 | GET       	| `/profile` 	            | Render user,my favourites,myBar 	            |
 | GET           | `/profile/:id/edit` 	    | Render form edit profile 	                    |
 | POST          | `/profile/:id/edit`       | Handler profile 	                            |
 | POST          | `/profile/:id/delete`     | Delete profile	                            |
 | GET           | `/profile/create-`         | Render Form cocktail 	            |
-| POST          | `/profile/create-cocktail`         | Handler cocktail created 	        |
+| POST          | `/profile/create-cocktail/form`         | Handler cocktail created 	        |
 | GET           | `/profile/cocktail-details/:id`         | Render cocktail details 
-| GET           | `/:id/edit-cocktail/:id(cocktail)`  | Render Form edit cocktail 	    |
-| POST          | `/:id/edit-cocktail/:id(cocktail)`  | Handler edit cocktail created   |
-| POST          | `/:id/delete-cocktail/:id(cocktail)`| Delete cocktail created 	    |
+| GET           | `/profile/edit-cocktail/:id`  | Render Form edit cocktail 	    |
+| POST          | `/profile/edit-cocktail/:id`  | Handler edit cocktail created   |
+| POST          | `/profile/delete-cocktail/:id`| Delete cocktail created 	    |
 | POST          | `/:id/role`               | Handler role 	                                |
 | POST          | `/profile/users`               | Render users list	                                |
 | GET         	| `/api/cocktail` 	    | Cocktail `Array` 	                            | ✅  
