@@ -2,46 +2,30 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/User.model')
-const Cocktail = require('../models/Cocktail.model')
-const cocktailApiHandler = require('../services/cocktail-api.service');
 
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
 const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
 const { getUserRole } = require('../utils/role-handling');
+const { getDrinkesByIds, getUserDrinkes } = require('../utils/drinks/drinks.helpers');
 
 // User profile (render)
 router.get("/", isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), (req, res, next) => {
-    const { _id } = req.session.currentUser
-    const userFav = req.session.currentUser.favorites
 
-    const drinksPromises = userFav.map((idDrink => {
-        return cocktailApiHandler.getById(idDrink).then(response => {
-            return response.data.drinks[0]
+    const currentUser = req.session.currentUser
+    const userFav = currentUser.favorites
+
+    const favDrinks = getDrinkesByIds(userFav)
+
+    const myDrinks = getUserDrinkes(currentUser)
+
+    return Promise.all([favDrinks, myDrinks]).then(responses => {
+        res.render('user/profile', {
+            favDrinks: responses[0],
+            myDrinks: responses[1],
+            user: currentUser,
+            userRole: getUserRole(currentUser),
         })
-    }))
-
-    const drinks = Promise.all(drinksPromises)
-
-    const promises = [
-        User.findById(_id),
-        Cocktail.find({ owner: { $eq: _id } }).populate('owner'),
-        drinks
-    ]
-
-    const userRole = getUserRole(req.session.currentUser)
-
-    Promise
-        .all(promises)
-        .then(response => {
-
-            const user = response[0]
-            const cocktails = response[1]
-            const drinks = response[2]
-
-            res.render('user/profile', { cocktails, user, userRole, drinks })
-
-        })
-        .catch(err => next(err))
+    }).catch(err => next(err))
 })
 
 
