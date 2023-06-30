@@ -1,21 +1,10 @@
-module.exports = app => {
+const router = require("express").Router()
 
-    const indexRoutes = require("./index.routes");
-    app.use("/", indexRoutes);
+router.use("/", require('./index.routes'))
+router.use("/", require('./drinks.routes'))
+router.use("/", require('./random.routes'))
+router.use("/", require('./auth.routes'))
+router.use("/", require('./user.routes'))
+router.use("/", require('./cocktail.routes'))
 
-    const drinksRoutes = require("./drinks.routes");
-    app.use("/", drinksRoutes);
-
-    const randomRoutes = require("./random.routes");
-    app.use("/", randomRoutes);
-
-    const authRoutes = require("./auth.routes");
-    app.use("/", authRoutes);
-
-    const userRoutes = require("./user.routes");
-    app.use("/profile", userRoutes);
-
-    const cocktailRoutes = require("./cocktail.routes");
-    app.use("/", cocktailRoutes);
-
-}
+module.exports = router

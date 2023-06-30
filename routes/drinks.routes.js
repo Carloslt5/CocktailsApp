@@ -1,97 +1,33 @@
 const express = require('express');
 const router = express.Router();
 
-const cocktailApiHandler = require('../services/cocktail-api.service');
 const uploaderMiddleware = require('../middlewares/uploader.middleware')
 const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
-const User = require('../models/User.model');
+const { getAlcohol, getNonAlcohol, getRum, getVodka, getGin, getTequila, getDetails, getFavorites } = require('../controllers/drinks.controllers')
 
 //Alcohol render
-router.get("/alcohol", (req, res, next) => {
-
-    cocktailApiHandler
-        .getAlcoholic()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/alcohol", getAlcohol)
 
 //Non Alcohol render
-router.get("/non-alcohol", (req, res, next) => {
-
-    cocktailApiHandler
-        .getNonAlcoholic()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/non-alcohol", getNonAlcohol)
 
 //Rum render
-router.get("/rum", (req, res, next) => {
-
-    cocktailApiHandler
-        .getRum()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/rum", getRum)
 
 //Vodka render
-router.get("/vodka", (req, res, next) => {
-
-    cocktailApiHandler
-        .getVodka()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/vodka", getVodka)
 
 //Gin render
-router.get("/gin", (req, res, next) => {
-
-    cocktailApiHandler
-        .getGin()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/gin", getGin)
 
 //Tequila render
-router.get("/tequila", (req, res, next) => {
-
-    cocktailApiHandler
-        .getTequila()
-        .then(({ data }) => res.render('filterApi/cocktails-list-page', data))
-        .catch(err => next(err))
-
-});
+router.get("/tequila", getTequila)
 
 //Alcohol render cocktail detail
-router.get("/cocktail-details/:id", isLoggedIn, (req, res, next) => {
-
-    const { id } = req.params
-
-    cocktailApiHandler
-        .getById(id)
-        .then(({ data }) => res.render('filterApi/cocktails-details', data))
-        .catch(err => next(err))
-});
+router.get("/cocktail-details/:id", isLoggedIn, getDetails)
 
 //Add favorites 
-router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('image'), (req, res, next) => {
-
-    const { id } = req.params
-    const user = req.session.currentUser._id
-
-    User
-        .findByIdAndUpdate(user, { $push: { favorites: id } }, { new: true })
-        .then(updateUser => {
-            req.session.currentUser = updateUser
-        })
-        .then(() => res.redirect(`/cocktail-details/${id}`))
-        .catch(err => next(err))
-})
-
+router.post('/:id/favorites', isLoggedIn, checkRoles('ADMIN', 'EDITOR', 'BASIC'), uploaderMiddleware.single('image'), getFavorites)
 
 
 

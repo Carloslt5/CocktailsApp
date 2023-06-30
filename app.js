@@ -13,7 +13,7 @@ app.use(updateLoggedUser)
 
 app.locals.siteTitle = `CocktailsApp`
 
-require("./routes")(app)
+app.use('/', require('./routes'))
 require("./error-handling")(app)
 
 module.exports = app
